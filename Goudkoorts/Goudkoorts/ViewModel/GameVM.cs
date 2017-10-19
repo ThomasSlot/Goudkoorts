@@ -7,52 +7,34 @@ namespace Goudkoorts
 {
     public class GameVM
     {
-        public GameView GameView
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public GameView GameView { get; set; }
 
-            set
-            {
-            }
+        public MenuView MenuView { get; set; }
+
+        public UserInput UserInput { get; set; }
+
+        public Shipyard Shipyard { get; set; }
+
+        public GameVM()
+        {
+            //initialize views
+            GameView = new GameView();
+            MenuView = new MenuView();
+            UserInput = new UserInput();
+
+            //start game
+            PlayGame();
         }
 
-        public MenuView MenuView
+        public void PlayGame()
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+            bool stopped = false;
 
-            set
+            while (!stopped) //check if player decided to stop
             {
+                MenuView.ShowMenu();
             }
-        }
-
-        public UserInput UserInput
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public Shipyard Shipyard
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
+            
         }
     }
 }

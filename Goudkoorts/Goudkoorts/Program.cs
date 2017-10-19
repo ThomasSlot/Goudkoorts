@@ -8,20 +8,9 @@ namespace Goudkoorts
 {
     class Program
     {
-        public GameVM GameVM
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
         static void Main(string[] args)
         {
+            new GameVM();
         }
     }
 }

@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Start Game">
+    <Position X="8.833" Y="0.781" Height="0.375" Width="0.856" />
+  </Comment>
   <Class Name="Goudkoorts.GameView">
     <Position X="2.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
@@ -10,7 +13,7 @@
   <Class Name="Goudkoorts.MenuView">
     <Position X="4.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>View\MenuView.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -76,7 +79,7 @@
   <Class Name="Goudkoorts.GameVM">
     <Position X="4.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAABAYAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAACAAAAAAAAABAAAAAAAAABAYAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModel\GameVM.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -89,12 +92,9 @@
   <Class Name="Goudkoorts.Program">
     <Position X="7.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="GameVM" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Goudkoorts.Shipyard">
     <Position X="4.75" Y="3.5" Width="1.5" />
@@ -107,6 +107,8 @@
     <AssociationLine Name="Railway" Type="Goudkoorts.RideTrack" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="6.25" Y="3.875" />
+        <Point X="6.542" Y="3.875" Type="JumpStart" />
+        <Point X="6.708" Y="3.875" Type="JumpEnd" />
         <Point X="7.625" Y="3.875" />
         <Point X="7.625" Y="4.75" />
       </Path>
