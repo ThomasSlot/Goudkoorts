@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public class GameViewVM
+    public class GameVM
     {
     }
 }

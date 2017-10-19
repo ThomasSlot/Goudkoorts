@@ -15,31 +15,10 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.UserInput">
-    <Position X="6.75" Y="2" Width="1.5" />
+    <Position X="6.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModel\UserInput.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Goudkoorts.GameViewVM">
-    <Position X="2.75" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ViewModel\GameViewVM.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Goudkoorts.MenuViewVM">
-    <Position X="4.75" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ViewModel\MenuViewVM.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Goudkoorts.ViewModel.ViewModelLocator" Collapsed="true">
-    <Position X="4.75" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAA=</HashCode>
-      <FileName>ViewModel\ViewModelLocator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Warehouse">
@@ -89,6 +68,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\ClassificationYard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.GameVM">
+    <Position X="4.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\GameVM.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

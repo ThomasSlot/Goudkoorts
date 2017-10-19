@@ -63,24 +63,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameView.cs" />
-    <Compile Include="GameViewVM.cs" />
-    <Compile Include="MenuView.cs" />
-    <Compile Include="MenuViewVM.cs" />
+    <Compile Include="Model\Cart.cs" />
+    <Compile Include="Model\ClassificationYard.cs" />
+    <Compile Include="Model\Pier.cs" />
+    <Compile Include="Model\RideTrack.cs" />
+    <Compile Include="Model\Ship.cs" />
+    <Compile Include="Model\SwitchTrack.cs" />
+    <Compile Include="View\GameView.cs" />
+    <Compile Include="ViewModel\GameViewVM.cs" />
+    <Compile Include="View\MenuView.cs" />
+    <Compile Include="ViewModel\MenuViewVM.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserInput.cs" />
+    <Compile Include="ViewModel\UserInput.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Model\Warehouse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Diagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="ViewModel\" />
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
