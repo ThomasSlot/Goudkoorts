@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public class SwitchTrack
+    public class SwitchTrack : RideTrack
     {
     }
 }

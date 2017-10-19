@@ -7,5 +7,16 @@ namespace Goudkoorts
 {
     public class Warehouse
     {
+        public Cart Cart
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
     }
 }
