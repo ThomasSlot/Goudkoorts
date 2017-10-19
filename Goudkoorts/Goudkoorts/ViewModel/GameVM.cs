@@ -33,6 +33,11 @@ namespace Goudkoorts
             while (!stopped) //check if player decided to stop
             {
                 MenuView.ShowMenu();
+                if (UserInput.getInput().Equals("S"))
+                {
+                    GameView.ShowGame();
+                    Console.ReadLine();
+                }
             }
             
         }

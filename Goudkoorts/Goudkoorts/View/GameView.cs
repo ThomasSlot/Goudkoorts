@@ -7,5 +7,16 @@ namespace Goudkoorts
 {
     public class GameView
     {
+        public GameView()
+        {
+
+        }
+
+        public void ShowGame()
+        {
+            Console.Clear();
+            Console.WriteLine("Spel");
+        }
+
     }
 }

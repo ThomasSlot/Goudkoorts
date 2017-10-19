@@ -13,6 +13,7 @@ namespace Goudkoorts
 
         public void ShowMenu()
         {
+            Console.Clear();
             Console.WriteLine("----------------------------------------");
             Console.WriteLine("            GOLDRUSH: The Game          ");
             Console.WriteLine("----------------------------------------");
@@ -25,7 +26,8 @@ namespace Goudkoorts
             Console.WriteLine("Controls:");
             Console.WriteLine("1 - Move TrackSwitch 1         4 - Move TrackSwitch 4");
             Console.WriteLine("2 - Move TrackSwitch 2         5 - Move TrackSwitch 5");
-            Console.WriteLine("3 - Move TrackSwitch 3         S - Stop The Game and Return To Menu");
+            Console.WriteLine("3 - Move TrackSwitch 3         S - Stop The Game");
+            Console.WriteLine("R - Return To Menu");
             Console.WriteLine("");
             Console.WriteLine("Press S to Start the game!");
         }
