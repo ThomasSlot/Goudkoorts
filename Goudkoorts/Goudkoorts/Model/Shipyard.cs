@@ -14,5 +14,20 @@ namespace Goudkoorts
         public Pier Pier { get; set; }
 
         public LinkedList<RideTrack> Railway { get; set; }
+
+        public Shipyard()
+        {
+            create();
+        }
+
+        private void create()
+        {
+            RideTrack Rail1 = new RideTrack("Rail1");
+
+            RideTrack EndTrack = new RideTrack("EndTrack");
+            EndTrack.previous = Rail1;
+
+
+        }
     }
 }

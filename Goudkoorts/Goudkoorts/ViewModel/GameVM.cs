@@ -35,6 +35,7 @@ namespace Goudkoorts
                 MenuView.ShowMenu();
                 if (UserInput.getInput().Equals("S"))
                 {
+                    Shipyard = new Shipyard(); //create actual game
                     GameView.ShowGame();
                     Console.ReadLine();
                 }
