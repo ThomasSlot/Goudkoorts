@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -7,27 +8,68 @@ namespace Goudkoorts
 {
     public class Shipyard
     {
-        public Warehouse Warehouse { get; set; }
 
-        public Ship Ship { get; set; }
+        private int ShipyardNumber {get ;set; }
 
-        public Pier Pier { get; set; }
+        public List<List<GameItem>> Level { get; set; }
 
-        public LinkedList<RideTrack> Railway { get; set; }
-
-        public Shipyard()
+        public Shipyard(int number)
         {
-            create();
+            ShipyardNumber = number; //choose level
+
+            create(); //create level
+            
         }
 
         private void create()
         {
-            RideTrack Rail1 = new RideTrack("Rail1");
+            //read file
+            string fileName = "Shipyard" + ShipyardNumber + ".txt";
+            string path = Path.Combine(Environment.CurrentDirectory, @"Shipyard\", fileName);
+            string[] lines = File.ReadAllLines(path);
 
-            RideTrack EndTrack = new RideTrack("EndTrack");
-            EndTrack.previous = Rail1;
+            //playing field
+            Level = new List<List<GameItem>>();
 
+            //add items
+            int x = 0;
+            for (int y = 0; y < lines.Length; y++) 
+            {
+                Level.Insert(y, new List<GameItem>());
 
+                foreach (char c in lines[y])
+                {
+                    switch (c)
+                    {
+                        case '-':
+                            Level[y].Insert(x, new Empty());
+                            break;
+                        case 'B':
+                            Level[y].Insert(x, new Ship());
+                            break;
+                        case 'X':
+                            Level[y].Insert(x, new Warehouse());
+                            break;
+                        case 'R':
+                            Level[y].Insert(x, new RideTrack());
+                            break;
+                        case 'P':
+                            Level[y].Insert(x, new Pier());
+                            break;
+                        case 'S':
+                            Level[y].Insert(x, new SwitchTrack());
+                            break;
+                        case 'W':
+                            Level[y].Insert(x, new Warehouse());
+                            break;
+                        case 'C':
+                            Level[y].Insert(x, new ClassificationYard());
+                            break;
+                    }
+                    x++; //count charachter
+                }
+                x = 0; //new count on new line
+            }
         }
     }
 }

@@ -6,7 +6,7 @@
   <Class Name="Goudkoorts.GameView">
     <Position X="2.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>View\GameView.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -20,12 +20,12 @@
   <Class Name="Goudkoorts.UserInput">
     <Position X="7.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModel\UserInput.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Warehouse">
-    <Position X="4.75" Y="4.75" Width="1.5" />
+    <Position X="5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Warehouse.cs</FileName>
@@ -35,42 +35,42 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Goudkoorts.Ship">
-    <Position X="2.75" Y="4.75" Width="1.5" />
+    <Position X="7.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Ship.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Cart">
-    <Position X="4.75" Y="6" Width="1.5" />
+    <Position X="5" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Cart.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.RideTrack">
-    <Position X="6.75" Y="4.75" Width="1.5" />
+    <Position X="8" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\RideTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Pier">
-    <Position X="0.75" Y="4.75" Width="1.5" />
+    <Position X="2.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Pier.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.SwitchTrack">
-    <Position X="6.75" Y="6" Width="1.5" />
+    <Position X="7" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\SwitchTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.ClassificationYard">
-    <Position X="8.75" Y="6" Width="1.5" />
+    <Position X="11" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\ClassificationYard.cs</FileName>
@@ -86,7 +86,6 @@
       <Property Name="GameView" />
       <Property Name="MenuView" />
       <Property Name="UserInput" />
-      <Property Name="Shipyard" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Goudkoorts.Program">
@@ -96,35 +95,33 @@
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.Shipyard">
-    <Position X="4.75" Y="3.5" Width="1.5" />
-    <AssociationLine Name="Warehouse" Type="Goudkoorts.Warehouse" FixedToPoint="true">
-      <Path>
-        <Point X="5.5" Y="4.368" />
-        <Point X="5.5" Y="4.75" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="Railway" Type="Goudkoorts.RideTrack" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="6.25" Y="3.875" />
-        <Point X="6.542" Y="3.875" Type="JumpStart" />
-        <Point X="6.708" Y="3.875" Type="JumpEnd" />
-        <Point X="7.625" Y="3.875" />
-        <Point X="7.625" Y="4.75" />
-      </Path>
-    </AssociationLine>
+  <Class Name="Goudkoorts.EndTrack">
+    <Position X="9.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAACAAAAAIAAACAAAAACAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\EndTrack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.GameItem">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Shipyard">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAABAABAAAAAAAA=</HashCode>
       <FileName>Model\Shipyard.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Warehouse" />
-      <Property Name="Ship" />
-      <Property Name="Pier" />
-    </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Property Name="Railway" />
-    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Goudkoorts.Empty">
+    <Position X="9.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Empty.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

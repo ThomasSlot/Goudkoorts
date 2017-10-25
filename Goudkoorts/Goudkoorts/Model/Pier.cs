@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public class Pier
+    public class Pier : GameItem
     {
     }
 }

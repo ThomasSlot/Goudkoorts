@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public class Warehouse
+    public class Warehouse : GameItem
     {
         public Cart Cart
         {

@@ -5,8 +5,7 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public class ClassificationYard : RideTrack
+    public class Empty : GameItem
     {
-      
     }
 }
