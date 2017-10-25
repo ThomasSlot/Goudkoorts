@@ -18,7 +18,6 @@ namespace Goudkoorts
             ShipyardNumber = number; //choose level
 
             create(); //create level
-            
         }
 
         private void create()
@@ -69,6 +68,56 @@ namespace Goudkoorts
                     x++; //count charachter
                 }
                 x = 0; //new count on new line
+            }
+
+            //add Links
+            for (int i = 0; i < Level.Count(); i++) //y-size
+            {
+                for (int j = 0; j < Level[i].Count(); j++) //x-size
+                {
+                    if (Level[i][j].GetType() == typeof(Warehouse))
+                    {
+                        setLinks(i, j);
+                        Console.WriteLine(Level[i][j].name + ":next = ");
+                    } else if(Level[i][j].GetType() == typeof(RegularTrack))
+                    {
+                        setLinks(i, j);
+                        Console.WriteLine(Level[i][j].name + ":next = ");
+                    }
+                }
+            }
+            Console.ReadLine();
+        }
+
+        public void setLinks(int i, int j)
+        {
+            if (Level[i][j + 1] != null)
+            {
+                if (Level[i][j + 1].GetType() == typeof(RideTrack)) //check right if track
+                {
+                    Level[i][j].next = Level[i][j + 1];
+                }
+            }
+            else if (Level[i][j - 1] != null)
+            {
+                if (Level[i][j - 1].GetType() == typeof(RideTrack)) //check left if track
+                {
+                    Level[i][j].next = Level[i][j - 1];
+                }
+            }
+            else if (Level[i - 1][j] != null)
+            {
+                if (Level[i + 1][j].GetType() == typeof(RideTrack)) //check up if track
+                {
+                    Level[i][j].next = Level[i + 1][j];
+                }
+            }
+            else if (Level[i + 1][j] != null)
+            {
+                if (Level[i - 1][j].GetType() == typeof(RideTrack)) //check down if track
+                {
+                    Level[i][j].next = Level[i - 1][j];
+                }
             }
         }
     }
