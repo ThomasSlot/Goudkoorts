@@ -49,7 +49,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.RideTrack">
-    <Position X="8" Y="6.25" Width="1.5" />
+    <Position X="8" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\RideTrack.cs</FileName>
@@ -63,21 +63,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.SwitchTrack">
-    <Position X="7" Y="8.5" Width="1.5" />
+    <Position X="7.25" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\SwitchTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.ClassificationYard">
-    <Position X="11" Y="7" Width="1.5" />
+    <Position X="10.75" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\ClassificationYard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.GameVM">
-    <Position X="4.75" Y="2.25" Width="1.5" />
+    <Position X="4.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAACAAAAAAAAABAAAAAAAAABAYAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModel\GameVM.cs</FileName>
@@ -86,6 +86,7 @@
       <Property Name="GameView" />
       <Property Name="MenuView" />
       <Property Name="UserInput" />
+      <Property Name="Shipyard" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Goudkoorts.Program">
@@ -96,21 +97,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.EndTrack">
-    <Position X="9.5" Y="8.75" Width="1.5" />
+    <Position X="9" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\EndTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.GameItem">
-    <Position X="5" Y="4.75" Width="1.5" />
+    <Position X="5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>GameItem.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAEAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Model\GameItem.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Shipyard">
-    <Position X="2.75" Y="3.5" Width="1.5" />
+    <Position X="2.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAABAABAAAAAAAA=</HashCode>
       <FileName>Model\Shipyard.cs</FileName>
@@ -120,7 +121,14 @@
     <Position X="9.25" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Empty.cs</FileName>
+      <FileName>Model\Empty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.RegularTrack">
+    <Position X="10.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\RegularTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

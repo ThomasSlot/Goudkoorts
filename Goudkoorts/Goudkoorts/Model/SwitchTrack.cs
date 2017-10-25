@@ -7,17 +7,9 @@ namespace Goudkoorts
 {
     public class SwitchTrack : RideTrack
     {
-        public int number { get; set; }
-
-        public void Switch()
+        public SwitchTrack(char name)
         {
-            //if(active-prev/next = 1)
-            //{
-            //active-prev/next = 2;
-            //} else 
-            //{
-            //active-pre/next = 1;
-            //}
+            this.name = name;
         }
     }
 }

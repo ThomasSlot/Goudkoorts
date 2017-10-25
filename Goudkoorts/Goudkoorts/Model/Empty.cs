@@ -7,5 +7,9 @@ namespace Goudkoorts
 {
     public class Empty : GameItem
     {
+        public Empty(char name)
+        {
+            this.name = name;
+        }
     }
 }

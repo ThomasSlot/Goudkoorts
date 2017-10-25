@@ -7,16 +7,11 @@ namespace Goudkoorts
 {
     public class Warehouse : GameItem
     {
-        public Cart Cart
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public Cart Cart { get; set; }
 
-            set
-            {
-            }
+        public Warehouse(char name)
+        {
+            this.name = name;
         }
     }
 }

@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public class Pier : GameItem
+    public class RegularTrack : RideTrack
     {
-        public Pier(char name)
+        public RegularTrack(char name)
         {
             this.name = name;
         }

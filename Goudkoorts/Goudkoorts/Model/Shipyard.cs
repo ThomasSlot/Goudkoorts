@@ -42,28 +42,28 @@ namespace Goudkoorts
                     switch (c)
                     {
                         case '-':
-                            Level[y].Insert(x, new Empty());
+                            Level[y].Insert(x, new Empty('-'));
                             break;
                         case 'B':
-                            Level[y].Insert(x, new Ship());
+                            Level[y].Insert(x, new Ship('B'));
                             break;
                         case 'X':
-                            Level[y].Insert(x, new Warehouse());
+                            Level[y].Insert(x, new EndTrack('X'));
                             break;
                         case 'R':
-                            Level[y].Insert(x, new RideTrack());
+                            Level[y].Insert(x, new RegularTrack('R'));
                             break;
                         case 'P':
-                            Level[y].Insert(x, new Pier());
+                            Level[y].Insert(x, new Pier('P'));
                             break;
                         case 'S':
-                            Level[y].Insert(x, new SwitchTrack());
+                            Level[y].Insert(x, new SwitchTrack('S'));
                             break;
                         case 'W':
-                            Level[y].Insert(x, new Warehouse());
+                            Level[y].Insert(x, new Warehouse('W'));
                             break;
                         case 'C':
-                            Level[y].Insert(x, new ClassificationYard());
+                            Level[y].Insert(x, new ClassificationYard('C'));
                             break;
                     }
                     x++; //count charachter

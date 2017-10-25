@@ -1,5 +1,4 @@
 C:\Users\Thomas\Source\Repos\Goudkoorts\Goudkoorts\Goudkoorts\bin\Debug\Goudkoorts.exe.config
-C:\Users\Thomas\Documents\GitHub\Goudkoorts\Goudkoorts\Goudkoorts\obj\Debug\Goudkoorts.csprojResolveAssemblyReference.cache
 C:\Users\Thomas\Documents\GitHub\Goudkoorts\Goudkoorts\Goudkoorts\bin\Debug\Goudkoorts.exe.config
 C:\Users\Thomas\Documents\GitHub\Goudkoorts\Goudkoorts\Goudkoorts\bin\Debug\Goudkoorts.exe
 C:\Users\Thomas\Documents\GitHub\Goudkoorts\Goudkoorts\Goudkoorts\bin\Debug\Goudkoorts.pdb

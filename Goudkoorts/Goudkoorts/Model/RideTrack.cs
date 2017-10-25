@@ -10,7 +10,6 @@ namespace Goudkoorts
 
         public RideTrack()
         {
-
         }
     }
 }
