@@ -122,10 +122,10 @@ namespace Goudkoorts
            
             if (carts == null)
             {
-                Console.WriteLine(0);
+                Console.WriteLine("numbers of carts: " + 0);
             } else
             {
-                Console.WriteLine(carts.Count());
+                Console.WriteLine("numbers of carts: " + carts.Count());
 
                 //move carts
                 foreach (Cart c in carts)
