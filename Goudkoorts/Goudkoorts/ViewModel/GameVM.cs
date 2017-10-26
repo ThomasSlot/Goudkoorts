@@ -44,16 +44,13 @@ namespace Goudkoorts
 
                     while (playing) //playing the game
                     {
-                        for (int a = 10; a >=0; a--)
+                        for (int a = 3; a >=0; a--)
                         {
                             Console.CursorLeft = 22;
                             GameView.ShowGame(Shipyard, a);
+                            Shipyard.PlayRound();
                             System.Threading.Thread.Sleep(1000);
                         }
-                        //random random cart spawn
-                        //check for points
-                        //check for crash (not classificationyard) and delete if true
-                        //delete cars if endtrack
                     }
                 }
             }

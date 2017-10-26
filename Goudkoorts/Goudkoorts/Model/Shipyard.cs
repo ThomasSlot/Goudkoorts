@@ -13,8 +13,11 @@ namespace Goudkoorts
 
         public List<List<GameItem>> Level { get; set; }
 
+        public List<Cart> carts { get; set; }
+
         public Shipyard()
-        { 
+        {
+            carts = new List<Cart>();
         }
 
         public void setNumber(int i)
@@ -92,6 +95,50 @@ namespace Goudkoorts
             
             Level[a][x].next = Level[a][xx];
             Level[a][xx].previous = Level[a][x];
-        }    
+        }   
+        
+        public void PlayRound()
+        {
+            //random random cart spawn
+            Warehouse w;
+            Cart cart;
+            Random r = new Random();
+            for (int i = 0; i < Level.Count(); i++) //y-size
+            {
+                for (int j = 0; j < Level[i].Count() - 1; j++) //x-size
+                {
+                    if(Level[i][j].GetType() == typeof(Warehouse))
+                    {
+                        w = (Warehouse)Level[i][j];
+                        if(w.createCart(r))
+                        {
+                            cart = new Cart();
+                            cart.previous = Level[i][j];
+                            carts.Add(cart);
+                        }
+                    }
+                }
+            }
+           
+            if (carts == null)
+            {
+                Console.WriteLine(0);
+            } else
+            {
+                Console.WriteLine(carts.Count());
+
+                //move carts
+                foreach (Cart c in carts)
+                {
+                    c.next = c.previous.next;
+                }
+            }
+
+           
+
+            //check for points
+            //check for crash (not classificationyard) and delete if true
+            //delete cars if endtrack
+        }
     }
 }

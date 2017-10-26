@@ -7,11 +7,20 @@ namespace Goudkoorts
 {
     public class Warehouse : GameItem
     {
-        public Cart Cart { get; set; }
 
         public Warehouse(char name)
         {
             this.name = name;
+        }
+
+        public bool createCart(Random r)
+        {
+            int x = r.Next(11);
+            if(x > 7)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

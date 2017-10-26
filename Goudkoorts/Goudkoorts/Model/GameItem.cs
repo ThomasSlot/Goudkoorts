@@ -18,6 +18,7 @@ namespace Goudkoorts
         public void setPrevious(GameItem g)
         {
             previous = g;
-        }        
+        }     
+          
     }
 }
