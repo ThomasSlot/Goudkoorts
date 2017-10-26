@@ -14,13 +14,14 @@ namespace Goudkoorts
             
         }
 
-        public void ShowGame(Shipyard s, int time)
+        public void ShowGame(Shipyard s, int time, int carts)
         {
             shipyard = s;
 
             Console.Clear();
 
             Console.WriteLine("TIMER:" + time);
+            Console.WriteLine("Carts:" + carts);
             Console.WriteLine("");
 
             for (int x = 0; x < shipyard.Level.Count(); x++) //actual game

@@ -47,7 +47,7 @@ namespace Goudkoorts
                         for (int a = 3; a >=0; a--)
                         {
                             Console.CursorLeft = 22;
-                            GameView.ShowGame(Shipyard, a);
+                            GameView.ShowGame(Shipyard, a, Shipyard.carts.Count());
                             System.Threading.Thread.Sleep(1000);
                         }
                         Shipyard.PlayRound();
