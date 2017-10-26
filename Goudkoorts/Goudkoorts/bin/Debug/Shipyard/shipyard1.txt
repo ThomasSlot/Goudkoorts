@@ -3,9 +3,9 @@
 -XRRRRRRRRPRR-
 ------------R-
 -WRRR-RRRRR-R-
-----SRS---SRR-
+----MRS---MRR-
 -WRRR-RR-RR---
--------SRS----
+-------MRS----
 -WRRRRRR-RRRR-
 ------------R-
 --CCCCCCCCRRR-

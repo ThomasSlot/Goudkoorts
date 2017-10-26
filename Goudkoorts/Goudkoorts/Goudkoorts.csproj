@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\MergeTrack.cs" />
     <Compile Include="Model\Empty.cs" />
     <Compile Include="Model\GameItem.cs" />
     <Compile Include="Model\EndTrack.cs" />

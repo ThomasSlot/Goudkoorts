@@ -24,9 +24,9 @@ namespace Goudkoorts
             Console.WriteLine("Watch the timer, because you only get a limited amount of time to react!");
             Console.WriteLine("----------------------------------------");
             Console.WriteLine("Controls:");
-            Console.WriteLine("1 - Move TrackSwitch 1         4 - Move TrackSwitch 4");
-            Console.WriteLine("2 - Move TrackSwitch 2         5 - Move TrackSwitch 5");
-            Console.WriteLine("3 - Move TrackSwitch 3         S - Stop The Game");
+            Console.WriteLine("1 - Switch MergeTrack  1         4 - Switch SwitchTrack 2");
+            Console.WriteLine("2 - Switch SwitchTrack 1         5 - Switch MergeTrack  3");
+            Console.WriteLine("3 - Switch MergeTrack  2         S - Stop The Game");
             Console.WriteLine("R - Return To Menu");
             Console.WriteLine("");
             Console.WriteLine("Press S to Start the game!");

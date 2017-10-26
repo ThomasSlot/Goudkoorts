@@ -7,7 +7,6 @@ C:\Users\Thomas\Documents\GitHub\Goudkoorts\Goudkoorts\Goudkoorts\bin\Debug\Micr
 C:\Users\Thomas\Documents\GitHub\Goudkoorts\Goudkoorts\Goudkoorts\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 C:\Users\Thomas\Documents\GitHub\Goudkoorts\Goudkoorts\Goudkoorts\obj\Debug\Goudkoorts.exe
 C:\Users\Thomas\Documents\GitHub\Goudkoorts\Goudkoorts\Goudkoorts\obj\Debug\Goudkoorts.pdb
-C:\Users\Thomas\Documents\GitHub\Goudkoorts\Goudkoorts\Goudkoorts\obj\Debug\Goudkoorts.csprojResolveAssemblyReference.cache
 C:\Users\thoma\Documents\GitHub\Goudkoorts\Goudkoorts\Goudkoorts\bin\Debug\Goudkoorts.exe.config
 C:\Users\thoma\Documents\GitHub\Goudkoorts\Goudkoorts\Goudkoorts\obj\Debug\Goudkoorts.exe
 C:\Users\thoma\Documents\GitHub\Goudkoorts\Goudkoorts\Goudkoorts\obj\Debug\Goudkoorts.pdb

@@ -13,6 +13,11 @@ namespace Goudkoorts
         
         public GameItem()
         {
+        }
+        
+        public void setPrevious(GameItem g)
+        {
+            previous = g;
         }        
     }
 }

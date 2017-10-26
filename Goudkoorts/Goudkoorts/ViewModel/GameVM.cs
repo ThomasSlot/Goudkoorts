@@ -20,7 +20,9 @@ namespace Goudkoorts
             //initialize views
             GameView = new GameView();
             MenuView = new MenuView();
+            
             UserInput = new UserInput();
+            Shipyard = new Shipyard(); //create actual game
 
             //start game
             PlayGame();
@@ -29,15 +31,30 @@ namespace Goudkoorts
         public void PlayGame()
         {
             bool stopped = false;
+            bool playing = false;
 
             while (!stopped) //check if player decided to stop
             {
                 MenuView.ShowMenu();
                 if (UserInput.getInput().Equals("S"))
                 {
-                    Shipyard = new Shipyard(1); //create actual game
-                    GameView.ShowGame(Shipyard);
-                    Console.ReadLine();
+                    playing = true;
+                    Shipyard.setNumber(1);
+                    Shipyard.create();
+
+                    while (playing) //playing the game
+                    {
+                        for (int a = 10; a >=0; a--)
+                        {
+                            Console.CursorLeft = 22;
+                            GameView.ShowGame(Shipyard, a);
+                            System.Threading.Thread.Sleep(1000);
+                        }
+                        //random random cart spawn
+                        //check for points
+                        //check for crash (not classificationyard) and delete if true
+                        //delete cars if endtrack
+                    }
                 }
             }
             

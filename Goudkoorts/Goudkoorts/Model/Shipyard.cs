@@ -13,14 +13,16 @@ namespace Goudkoorts
 
         public List<List<GameItem>> Level { get; set; }
 
-        public Shipyard(int number)
-        {
-            ShipyardNumber = number; //choose level
-
-            create(); //create level
+        public Shipyard()
+        { 
         }
 
-        private void create()
+        public void setNumber(int i)
+        {
+            ShipyardNumber = i;
+        }
+
+        public void create()
         {
             //read file
             string fileName = "Shipyard" + ShipyardNumber + ".txt";
@@ -64,6 +66,9 @@ namespace Goudkoorts
                         case 'C':
                             Level[y].Insert(x, new ClassificationYard('C'));
                             break;
+                        case 'M':
+                            Level[y].Insert(x, new MergeTrack('M'));
+                            break;
                     }
                     x++; //count charachter
                 }
@@ -71,57 +76,22 @@ namespace Goudkoorts
             }
 
             //add Links
-            for (int i = 0; i < Level.Count() - 1; i++) //y-size
+            for (int i = 0; i < Level.Count(); i++) //y-size
             {
-                for (int j = 0; j < Level[i].Count() -1; j++) //x-size
+                for(int j = 0; j < Level[i].Count() - 1; j++) //x-size
                 {
-                     if(Level[i][j].GetType() == typeof(Warehouse))
-                    {
-                        SetLinks(i, j);
-
-                        
-
-                        Console.WriteLine(Level[i][j].GetType().ToString());
-                        Console.WriteLine("X = " + i);
-                        Console.WriteLine("X = " + j);
-                        Console.WriteLine("next: " + Level[i][j].next.GetType().ToString());
-                        Console.WriteLine("");
-                    }
+                    SetLinks(i, j);
                 }
             }
-            Console.ReadLine();
         }
 
-        public void SetLinks(int i, int j)
+        public void SetLinks(int a, int b) //set next and previous of each line
         {
-            if (Level[i][j + 1] != null)
-            {
-                if (Level[i][j + 1].GetType().BaseType == typeof(RideTrack)) //check right if track
-                {
-                    Level[i][j].next = Level[i][j + 1];
-                }
-            }
-            if (Level[i][j - 1] != null)
-            {
-                if (Level[i][j - 1].GetType().BaseType == typeof(RideTrack)) //check left if track
-                {
-                    Level[i][j].next = Level[i][j - 1];
-                }
-            }
-            if (Level[i + 1][j] != null)
-            {
-                if (Level[i + 1][j].GetType().BaseType == typeof(RideTrack)) //check up if track
-                {
-                    Level[i][j].next = Level[i + 1][j];
-                }
-            }
-            if (Level[i - 1][j] != null)
-            {
-                if (Level[i - 1][j].GetType().BaseType == typeof(RideTrack)) //check down if track
-                {
-                    Level[i][j].next = Level[i - 1][j];
-                }
-            }
-        }
+            int x = b;
+            int xx = b + 1;
+            
+            Level[a][x].next = Level[a][xx];
+            Level[a][xx].previous = Level[a][x];
+        }    
     }
 }

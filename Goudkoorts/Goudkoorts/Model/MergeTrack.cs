@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public class Cart
+    public class MergeTrack : RideTrack
     {
-        public Cart()
+        public MergeTrack(char name)
         {
-
+            this.name = name;
         }
     }
 }
