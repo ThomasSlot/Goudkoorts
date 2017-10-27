@@ -15,6 +15,10 @@ namespace Goudkoorts
 
         public List<Cart> carts { get; set; }
 
+        public Ship ship { get; set; }
+
+        public int Points { get; set; }
+
         public Shipyard()
         {
             carts = new List<Cart>();
@@ -49,7 +53,8 @@ namespace Goudkoorts
                             Level[y].Insert(x, new Empty('-', x, y));
                             break;
                         case 'B':
-                            Level[y].Insert(x, new Ship('B', x, y));
+                            ship = new Ship('B', x, y);
+                            Level[y].Insert(x, ship);
                             break;
                         case 'X':
                             Level[y].Insert(x, new EndTrack('X', x, y));
@@ -108,7 +113,7 @@ namespace Goudkoorts
             }
         }   
         
-        public bool PlayRound()
+        public int PlayRound()
         {
             //random random cart spawn
             Warehouse w;
@@ -138,14 +143,50 @@ namespace Goudkoorts
 
 
             //check for points
+            if(checkPoints())
+            {
+                return 2; //stop game
+            }
+
             //check for crash (not classificationyard) and delete if true
             if (checkCrash())
             {
-                return false; //stop game
+                return 3; //stop game
             }
-            //delete cars if endtrack
 
-            return true;
+            //delete cars if endtrack
+            deleteCart();
+
+            return 1; //entire round played
+        }
+
+        public bool checkPoints()
+        {
+            if(ship.fill >= 4) //if ship is full;
+            {
+                Points += 10;
+                ship.fill = 0;
+            }
+
+            if(Points >= 36)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void deleteCart()
+        {
+            if (carts.Count() >= 1)
+            {
+                for (int i = 0; i < carts.Count() - 1; i++)
+                {
+                    if (carts[i].current.GetType() == typeof(EndTrack))
+                    {
+                        carts.RemoveAt(i);
+                    }
+                }
+            }
         }
 
         public bool checkCrash()
@@ -221,7 +262,15 @@ namespace Goudkoorts
                         c.current = c.current.down;
                         c.current.setCart(true);
                     }
-                }             
+                } 
+                if(c.current.GetType() == typeof(Pier)) //fill ship
+                {
+                    Ship s = (Ship) c.current.up;
+                    s.fill += 1;
+                    Points += 1; //add 1 point
+                    Console.WriteLine("Ship filled: " + c.current.GetType() + ", " + s.fill);
+                    Console.ReadLine();
+                }            
             }
         }
     }

@@ -19,7 +19,7 @@ namespace Goudkoorts
         public bool createCart(Random r)
         {
             int x = r.Next(11);
-            if(x > 7)
+            if(x > 5)
             {
                 return true;
             }

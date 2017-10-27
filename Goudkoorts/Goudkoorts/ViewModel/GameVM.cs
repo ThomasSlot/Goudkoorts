@@ -44,16 +44,23 @@ namespace Goudkoorts
 
                     while (playing) //playing the game
                     {
-                        for (int a = 3; a >=0; a--)
+                        for (int a = 1; a >=0; a--) //timer
                         {
                             Console.CursorLeft = 22;
-                            GameView.ShowGame(Shipyard, a, Shipyard.carts.Count(), Shipyard.carts);
+                            GameView.ShowGame(Shipyard, a, Shipyard.carts.Count(), Shipyard.carts, Shipyard.Points, Shipyard.ship.fill);
                             System.Threading.Thread.Sleep(1000);
                         }
 
-                        if (!Shipyard.PlayRound())
+                        if (Shipyard.PlayRound() > 1) //check outcome of playing round
                         {
-                            GameView.GameStop();
+                            if (Shipyard.PlayRound() == 3) //crash
+                            {
+                                GameView.GameCrash();
+                            } else if(Shipyard.PlayRound() == 2) //win
+                            {
+                                GameView.GameWin();
+                            }
+
                             if (UserInput.getInput().Equals("R"))
                             {
                                 playing = false;

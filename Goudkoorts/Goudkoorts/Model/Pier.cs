@@ -10,6 +10,7 @@ namespace Goudkoorts
         public Pier(char name, int x, int y)
         {
             this.name = name;
+            this.temp = name;
             this.x = x;
             this.y = y;
         }

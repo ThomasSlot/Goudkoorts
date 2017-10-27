@@ -14,14 +14,21 @@ namespace Goudkoorts
             
         }
 
-        public void GameStop()
+        public void GameCrash()
         {
             Console.Clear();
-            Console.WriteLine("The game has stopped.");
+            Console.WriteLine("Two carts crashed into eachother, you died.");
             Console.WriteLine("Press R to return to Menu");
         }
 
-        public void ShowGame(Shipyard s, int time, int cart, List<Cart> carts)
+        public void GameWin()
+        {
+            Console.Clear();
+            Console.WriteLine("You have won the game!");
+            Console.WriteLine("Press R to return to Menu");
+        }
+
+        public void ShowGame(Shipyard s, int time, int cart, List<Cart> carts, int Points, int fill)
         {
             shipyard = s;
 
@@ -29,6 +36,8 @@ namespace Goudkoorts
 
             Console.WriteLine("TIMER:" + time);
             Console.WriteLine("Carts:" + cart);
+            Console.WriteLine("Points:" + Points);
+            Console.WriteLine("ShipFull (0/4): " + fill);
             Console.WriteLine("");
 
             for (int x = 0; x < shipyard.Level.Count(); x++) //actual game
