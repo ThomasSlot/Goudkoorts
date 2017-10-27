@@ -8,10 +8,12 @@ namespace Goudkoorts
     public class Warehouse : GameItem
     {
 
-        public Warehouse(char name)
+        public Warehouse(char name, int x, int y)
         {
             this.name = name;
             this.temp = name;
+            this.x = x;
+            this.y = y;
         }
 
         public bool createCart(Random r)

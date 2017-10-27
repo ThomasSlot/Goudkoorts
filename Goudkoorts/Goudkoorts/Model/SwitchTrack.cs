@@ -7,10 +7,12 @@ namespace Goudkoorts
 {
     public class SwitchTrack : RideTrack
     {
-        public SwitchTrack(char name)
+        public SwitchTrack(char name, int x, int y)
         {
             this.name = name;
             this.temp = name;
+            this.x = x;
+            this.y = y;
         }
     }
 }

@@ -7,9 +7,11 @@ namespace Goudkoorts
 {
     public class Pier : RideTrack
     {
-        public Pier(char name)
+        public Pier(char name, int x, int y)
         {
             this.name = name;
+            this.x = x;
+            this.y = y;
         }
     }
 }

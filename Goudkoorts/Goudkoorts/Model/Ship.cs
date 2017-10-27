@@ -7,9 +7,11 @@ namespace Goudkoorts
 {
     public class Ship : GameItem
     {
-        public Ship(char name)
+        public Ship(char name, int x, int y)
         {
             this.name = name;
+            this.x = x;
+            this.y = y;
         }
     }
 }

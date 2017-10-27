@@ -49,28 +49,28 @@ namespace Goudkoorts
                             Level[y].Insert(x, new Empty('-', x, y));
                             break;
                         case 'B':
-                            Level[y].Insert(x, new Ship('B'));
+                            Level[y].Insert(x, new Ship('B', x, y));
                             break;
                         case 'X':
-                            Level[y].Insert(x, new EndTrack('X'));
+                            Level[y].Insert(x, new EndTrack('X', x, y));
                             break;
                         case 'R':
-                            Level[y].Insert(x, new RegularTrack('R'));
+                            Level[y].Insert(x, new RegularTrack('R', x, y));
                             break;
                         case 'P':
-                            Level[y].Insert(x, new Pier('P'));
+                            Level[y].Insert(x, new Pier('P', x, y));
                             break;
                         case 'S':
-                            Level[y].Insert(x, new SwitchTrack('S'));
+                            Level[y].Insert(x, new SwitchTrack('S', x, y));
                             break;
                         case 'W':
-                            Level[y].Insert(x, new Warehouse('W'));
+                            Level[y].Insert(x, new Warehouse('W', x, y));
                             break;
                         case 'C':
-                            Level[y].Insert(x, new ClassificationYard('C'));
+                            Level[y].Insert(x, new ClassificationYard('C', x, y));
                             break;
                         case 'M':
-                            Level[y].Insert(x, new MergeTrack('M'));
+                            Level[y].Insert(x, new MergeTrack('M', x, y));
                             break;
                     }
                     x++; //count charachter
@@ -90,27 +90,29 @@ namespace Goudkoorts
 
         public void SetCoordinates(int a, int b) //set coordinates of each line plus sides
         {
-                        
-            if(Level[a][b].x != 0) //left
+            if (Level[a][b].x > 0) //left
             {
-                Level[a][b].left = Level[a--][b];
-                a++;
+                Level[a][b].left = Level[a][b-1];
             }
-            if(Level[a][b].y < Level[0].Count()) //right
+            if(Level[a][b].x < Level[0].Count()) //right
             {
-                Level[a][b].right = Level[a++][b];
-                a--;
+                Level[a][b].right = Level[a][b+1];
             }
-            if(Level[a][b].x < Level.Count()) //down
+            if(Level[a][b].y < Level.Count() - 1) //down
             {
-                Level[a][b].down = Level[a][b++];
-                b--;
+                Level[a][b].down = Level[a+1][b];
             }
-            if(Level[a][b].y != 0) //up
+            if(Level[a][b].y > 0) //up
             {
-                Level[a][b].up = Level[a][b--];
-                b++;
+                Level[a][b].up = Level[a-1][b];
             }
+            Console.WriteLine(Level[a][b] + ": y=" + a + ", x=" + b);
+            Console.WriteLine("left = " + Level[a][b].left);
+            Console.WriteLine("right = " + Level[a][b].right);
+            Console.WriteLine("up = " + Level[a][b].up);
+            Console.WriteLine("down = " + Level[a][b].down);
+            Console.WriteLine("");
+            Console.ReadLine();
         }   
         
         public void PlayRound()
