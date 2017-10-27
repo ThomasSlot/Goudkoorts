@@ -108,7 +108,7 @@ namespace Goudkoorts
             }
         }   
         
-        public void PlayRound()
+        public bool PlayRound()
         {
             //random random cart spawn
             Warehouse w;
@@ -134,12 +134,34 @@ namespace Goudkoorts
             if (carts != null)
             {
                 moveCarts();
-            } 
-           
+            }
+
 
             //check for points
             //check for crash (not classificationyard) and delete if true
+            if (checkCrash())
+            {
+                return false; //stop game
+            }
             //delete cars if endtrack
+
+            return true;
+        }
+
+        public bool checkCrash()
+        {
+            if(carts.Count() > 1)
+            {
+                for(int i = 0; i < carts.Count() - 1; i++)
+                {
+                    if(carts[i].current == carts[i + 1].current)
+                    {
+                        carts.RemoveAt(i);
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         public void moveCarts()

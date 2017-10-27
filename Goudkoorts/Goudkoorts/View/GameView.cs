@@ -14,6 +14,13 @@ namespace Goudkoorts
             
         }
 
+        public void GameStop()
+        {
+            Console.Clear();
+            Console.WriteLine("The game has stopped.");
+            Console.WriteLine("Press R to return to Menu");
+        }
+
         public void ShowGame(Shipyard s, int time, int cart, List<Cart> carts)
         {
             shipyard = s;

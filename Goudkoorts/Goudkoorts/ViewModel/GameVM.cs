@@ -50,7 +50,15 @@ namespace Goudkoorts
                             GameView.ShowGame(Shipyard, a, Shipyard.carts.Count(), Shipyard.carts);
                             System.Threading.Thread.Sleep(1000);
                         }
-                        Shipyard.PlayRound();
+
+                        if (!Shipyard.PlayRound())
+                        {
+                            GameView.GameStop();
+                            if (UserInput.getInput().Equals("R"))
+                            {
+                                playing = false;
+                            }
+                        }
                     }
                 }
             }
