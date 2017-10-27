@@ -66,6 +66,8 @@ namespace Goudkoorts
                                 playing = false;
                             }
                         }
+
+                        UserInput.getInput();
                     }
                 }
             }
