@@ -46,7 +46,7 @@ namespace Goudkoorts
                     switch (c)
                     {
                         case '-':
-                            Level[y].Insert(x, new Empty('-'));
+                            Level[y].Insert(x, new Empty('-', x, y));
                             break;
                         case 'B':
                             Level[y].Insert(x, new Ship('B'));
@@ -83,18 +83,34 @@ namespace Goudkoorts
             {
                 for(int j = 0; j < Level[i].Count() - 1; j++) //x-size
                 {
-                    SetLinks(i, j);
+                    SetCoordinates(i, j);
                 }
             }
         }
 
-        public void SetLinks(int a, int b) //set next and previous of each line
+        public void SetCoordinates(int a, int b) //set coordinates of each line plus sides
         {
-            int x = b;
-            int xx = b + 1;
-            
-            Level[a][x].next = Level[a][xx];
-            Level[a][xx].previous = Level[a][x];
+                        
+            if(Level[a][b].x != 0) //left
+            {
+                Level[a][b].left = Level[a--][b];
+                a++;
+            }
+            if(Level[a][b].y < Level[0].Count()) //right
+            {
+                Level[a][b].right = Level[a++][b];
+                a--;
+            }
+            if(Level[a][b].x < Level.Count()) //down
+            {
+                Level[a][b].down = Level[a][b++];
+                b--;
+            }
+            if(Level[a][b].y != 0) //up
+            {
+                Level[a][b].up = Level[a][b--];
+                b++;
+            }
         }   
         
         public void PlayRound()
@@ -112,7 +128,7 @@ namespace Goudkoorts
                         w = (Warehouse)Level[i][j];
                         if(w.createCart(r))
                         {
-                            cart = new Cart();
+                            cart = new Cart(i, j);
                             cart.current = Level[i][j];
                             carts.Add(cart);
                         }
@@ -120,30 +136,63 @@ namespace Goudkoorts
                 }
             }
            
-            if (carts == null)
+            if (carts != null)
             {
-                Console.WriteLine("numbers of carts: " + 0);
-            } else
-            {
-                Console.WriteLine("numbers of carts: " + carts.Count());
-
-                //move carts
-                foreach (Cart c in carts)
-                {
-                    c.next = c.current.next;
-                    c.current = c.next;
-                    c.previous = c.current.previous;
-
-                    c.next.setCart(true);
-                    c.previous.setCart(false);
-                }
-            }
-
+                moveCarts();
+                Console.ReadLine();
+            } 
            
 
             //check for points
             //check for crash (not classificationyard) and delete if true
             //delete cars if endtrack
+        }
+
+        public void moveCarts()
+        {
+            foreach (Cart c in carts)
+            {
+                Console.WriteLine(c.x + ", " + c.y + ", " + c.current);
+                if (c.current.GetType() == typeof(Warehouse)) //if warehouse
+                {
+                    if (c.current.left.GetType().BaseType == typeof(RideTrack)) //if left track
+                    {
+                        c.current = c.current.left;
+                    }
+                    else if (c.current.right.GetType().BaseType == typeof(RideTrack))//if right track
+                    {
+                        c.current = c.current.right;
+                    }
+                    else if (c.current.up.GetType().BaseType == typeof(RideTrack))//if up track
+                    {
+                        c.current = c.current.up;
+                    }
+                    else if (c.current.down.GetType().BaseType == typeof(RideTrack))//if down track
+                    {
+                        c.current = c.current.down;
+                    }
+                } else if (c.current.GetType().BaseType == typeof(RideTrack)) //if track
+                {
+                    if (c.current.left.GetType().BaseType == typeof(RideTrack)) //if left track
+                    {
+                        c.current = c.current.left;
+                    }
+                    else if (c.current.right.GetType().BaseType == typeof(RideTrack))//if right track
+                    {
+                        c.current = c.current.right;
+                    }
+                    else if (c.current.up.GetType().BaseType == typeof(RideTrack))//if up track
+                    {
+                        c.current = c.current.up;
+                    }
+                    else if (c.current.down.GetType().BaseType == typeof(RideTrack))//if down track
+                    {
+                        c.current = c.current.down;
+                    }
+                }
+                Console.WriteLine(c.x + ", " + c.y);
+                
+            }
         }
     }
 }

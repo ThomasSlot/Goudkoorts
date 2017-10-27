@@ -7,8 +7,10 @@ namespace Goudkoorts
 {
     public class Cart : GameItem
     {
-        public Cart()
+        public Cart(int y, int x)
         {
+            this.y = y;
+            this.x = x;
             name = 'Z';
         }
     }

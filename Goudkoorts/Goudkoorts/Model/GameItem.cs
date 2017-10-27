@@ -5,11 +5,17 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public abstract class GameItem
+    public class GameItem
     {
-        public GameItem next { get; set; }
-        public GameItem previous { get; set; }
+        public GameItem right { get; set; }
+        public GameItem left { get; set; }
+        public GameItem up { get; set; }
+        public GameItem down { get; set; }
         public GameItem current { get; set; }
+   
+        public int x { get; set; }
+        public int y { get; set; }
+
         public char name { get; set; }
 
         public char temp { get; set; }
@@ -19,12 +25,7 @@ namespace Goudkoorts
         public GameItem()
         {
         }
-        
-        public void setPrevious(GameItem g)
-        {
-            previous = g;
-        }    
-        
+            
         public void setCart(bool b)
         {
             if (b)
