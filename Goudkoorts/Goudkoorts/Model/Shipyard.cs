@@ -106,13 +106,6 @@ namespace Goudkoorts
             {
                 Level[a][b].up = Level[a-1][b];
             }
-            Console.WriteLine(Level[a][b] + ": y=" + a + ", x=" + b);
-            Console.WriteLine("left = " + Level[a][b].left);
-            Console.WriteLine("right = " + Level[a][b].right);
-            Console.WriteLine("up = " + Level[a][b].up);
-            Console.WriteLine("down = " + Level[a][b].down);
-            Console.WriteLine("");
-            Console.ReadLine();
         }   
         
         public void PlayRound()
@@ -141,7 +134,6 @@ namespace Goudkoorts
             if (carts != null)
             {
                 moveCarts();
-                Console.ReadLine();
             } 
            
 
@@ -154,46 +146,60 @@ namespace Goudkoorts
         {
             foreach (Cart c in carts)
             {
-                Console.WriteLine(c.x + ", " + c.y + ", " + c.current);
                 if (c.current.GetType() == typeof(Warehouse)) //if warehouse
                 {
+                    c.previous = c.current; //set previous
                     if (c.current.left.GetType().BaseType == typeof(RideTrack)) //if left track
                     {
                         c.current = c.current.left;
+                        c.current.setCart(true);
                     }
                     else if (c.current.right.GetType().BaseType == typeof(RideTrack))//if right track
                     {
                         c.current = c.current.right;
+                        c.current.setCart(true);
                     }
                     else if (c.current.up.GetType().BaseType == typeof(RideTrack))//if up track
                     {
                         c.current = c.current.up;
+                        c.current.setCart(true);
                     }
                     else if (c.current.down.GetType().BaseType == typeof(RideTrack))//if down track
                     {
                         c.current = c.current.down;
+                        c.current.setCart(true);
                     }
                 } else if (c.current.GetType().BaseType == typeof(RideTrack)) //if track
                 {
-                    if (c.current.left.GetType().BaseType == typeof(RideTrack)) //if left track
+                    if (c.current.left.GetType().BaseType == typeof(RideTrack) && c.current.left != c.previous) //if left track
                     {
+                        c.previous = c.current;
+                        c.previous.setCart(false);
                         c.current = c.current.left;
+                        c.current.setCart(true);
                     }
-                    else if (c.current.right.GetType().BaseType == typeof(RideTrack))//if right track
+                    else if (c.current.right.GetType().BaseType == typeof(RideTrack) && c.current.right != c.previous)//if right track
                     {
+                        c.previous = c.current;
+                        c.previous.setCart(false);
                         c.current = c.current.right;
+                        c.current.setCart(true);
                     }
-                    else if (c.current.up.GetType().BaseType == typeof(RideTrack))//if up track
+                    else if (c.current.up.GetType().BaseType == typeof(RideTrack) && c.current.up != c.previous)//if up track
                     {
+                        c.previous = c.current;
+                        c.previous.setCart(false);
                         c.current = c.current.up;
+                        c.current.setCart(true);
                     }
-                    else if (c.current.down.GetType().BaseType == typeof(RideTrack))//if down track
+                    else if (c.current.down.GetType().BaseType == typeof(RideTrack) && c.current.down != c.previous)//if down track
                     {
+                        c.previous = c.current;
+                        c.previous.setCart(false);
                         c.current = c.current.down;
+                        c.current.setCart(true);
                     }
-                }
-                Console.WriteLine(c.x + ", " + c.y);
-                
+                }             
             }
         }
     }

@@ -12,6 +12,8 @@ namespace Goudkoorts
         public GameItem up { get; set; }
         public GameItem down { get; set; }
         public GameItem current { get; set; }
+        public GameItem previous { get; set; }
+            
    
         public int x { get; set; }
         public int y { get; set; }
