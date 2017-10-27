@@ -10,6 +10,7 @@ namespace Goudkoorts
         public RegularTrack(char name)
         {
             this.name = name;
+            this.temp = name;
         }
     }
 }

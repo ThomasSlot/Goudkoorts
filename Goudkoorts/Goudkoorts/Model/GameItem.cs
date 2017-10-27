@@ -9,7 +9,12 @@ namespace Goudkoorts
     {
         public GameItem next { get; set; }
         public GameItem previous { get; set; }
+        public GameItem current { get; set; }
         public char name { get; set; }
+
+        public char temp { get; set; }
+
+        public bool hasCart { get; set; }
         
         public GameItem()
         {
@@ -18,7 +23,18 @@ namespace Goudkoorts
         public void setPrevious(GameItem g)
         {
             previous = g;
-        }     
+        }    
+        
+        public void setCart(bool b)
+        {
+            if (b)
+            {
+                name = 'Z';
+            }else
+            {
+                name = temp;
+            }
+        }
           
     }
 }

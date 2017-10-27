@@ -10,6 +10,7 @@ namespace Goudkoorts
         public SwitchTrack(char name)
         {
             this.name = name;
+            this.temp = name;
         }
     }
 }

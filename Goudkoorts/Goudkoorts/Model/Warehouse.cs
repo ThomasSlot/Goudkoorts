@@ -11,6 +11,7 @@ namespace Goudkoorts
         public Warehouse(char name)
         {
             this.name = name;
+            this.temp = name;
         }
 
         public bool createCart(Random r)

@@ -10,6 +10,7 @@ namespace Goudkoorts
         public EndTrack(char name)
         {
             this.name = name;
+            this.temp = name;
         }
     }
 }

@@ -113,7 +113,7 @@ namespace Goudkoorts
                         if(w.createCart(r))
                         {
                             cart = new Cart();
-                            cart.previous = Level[i][j];
+                            cart.current = Level[i][j];
                             carts.Add(cart);
                         }
                     }
@@ -130,7 +130,12 @@ namespace Goudkoorts
                 //move carts
                 foreach (Cart c in carts)
                 {
-                    c.next = c.previous.next;
+                    c.next = c.current.next;
+                    c.current = c.next;
+                    c.previous = c.current.previous;
+
+                    c.next.setCart(true);
+                    c.previous.setCart(false);
                 }
             }
 

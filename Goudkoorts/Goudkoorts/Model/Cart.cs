@@ -9,7 +9,7 @@ namespace Goudkoorts
     {
         public Cart()
         {
-
+            name = 'Z';
         }
     }
 }
