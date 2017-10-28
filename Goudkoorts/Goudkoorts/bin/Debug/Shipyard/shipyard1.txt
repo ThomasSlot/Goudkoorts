@@ -2,11 +2,11 @@
 ----------B---
 -XRRRRRRRRPRR-
 ------------R-
--WRRR-RRRRR-R-
+-RRRR-RRRRR-R-
 ----MRS---MRR-
 -RRRR-RR-RR---
 -------MRS----
 -RRRRRRR-RRRR-
 ------------R-
---CCCCCCCCRRR-
+--CCCCCCCCRRW-
 --------------

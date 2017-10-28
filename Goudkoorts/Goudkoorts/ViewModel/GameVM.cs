@@ -47,7 +47,19 @@ namespace Goudkoorts
                     {
                         if (!start)
                         {
-                            Shipyard.Switch(UserInput.getInput()); //switches
+                            string input = UserInput.getInput();
+                            if (input.Equals("R")) //return to menu
+                            {
+                                break;
+                            }
+                            else if (input.Equals("S")) //stop game
+                            {
+                                Environment.Exit(0);
+                            }
+                            else
+                            {
+                                Shipyard.Switch(input); //switches
+                            }
                         }
                         start = false;
 
@@ -70,9 +82,9 @@ namespace Goudkoorts
 
                             if (UserInput.getInput().Equals("R"))
                             {
-                                playing = false;
+                                break;
                             }
-                        }
+                        } 
                     }
                 }
             }

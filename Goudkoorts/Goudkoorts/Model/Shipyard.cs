@@ -138,34 +138,40 @@ namespace Goudkoorts
             {
                 for (int x = 0; x < Level[y].Count() - 1; x++) //x-size
                 {
-                    j = Level[y][x].SwitchNumber.ToString();
-
-                    if (a.Equals(j))
+                    if (!Level[y][x].hasCart)
                     {
-                        if (Level[y][x].GetType() == typeof(MergeTrack)) //switch mergetrack
+                        j = Level[y][x].SwitchNumber.ToString();
+
+                        if (a.Equals(j))
                         {
-                            if(Level[y][x].previous != Level[y][x].down)
+                            if (Level[y][x].GetType() == typeof(MergeTrack)) //switch mergetrack
                             {
-                                Level[y][x].previous = Level[y][x].down;
-                                Level[y][x].up.color = ConsoleColor.Red;
-                            } else
-                            {
-                                Level[y][x].previous = Level[y][x].up;
-                                Level[y][x].down.color = ConsoleColor.Red;
+                                if (Level[y][x].previous != Level[y][x].down)
+                                {
+                                    Level[y][x].previous = Level[y][x].down;
+                                    Level[y][x].up.color = ConsoleColor.Red;
+                                }
+                                else
+                                {
+                                    Level[y][x].previous = Level[y][x].up;
+                                    Level[y][x].down.color = ConsoleColor.Red;
+                                }
+                                Level[y][x].previous.color = ConsoleColor.Green;
                             }
-                            Level[y][x].previous.color = ConsoleColor.Green;
-                        } else if(Level[y][x].GetType() == typeof(SwitchTrack))//switch switchtrack
-                        {
-                            if (Level[y][x].next != Level[y][x].down)
+                            else if (Level[y][x].GetType() == typeof(SwitchTrack))//switch switchtrack
                             {
-                                Level[y][x].next = Level[y][x].down;
-                                Level[y][x].up.color = ConsoleColor.Red;
-                            } else
-                            {
-                                Level[y][x].next = Level[y][x].up;
-                                Level[y][x].down.color = ConsoleColor.Red;
+                                if (Level[y][x].next != Level[y][x].down)
+                                {
+                                    Level[y][x].next = Level[y][x].down;
+                                    Level[y][x].up.color = ConsoleColor.Red;
+                                }
+                                else
+                                {
+                                    Level[y][x].next = Level[y][x].up;
+                                    Level[y][x].down.color = ConsoleColor.Red;
+                                }
+                                Level[y][x].next.color = ConsoleColor.Green;
                             }
-                            Level[y][x].next.color = ConsoleColor.Green;
                         }
                     }
                 }
@@ -291,32 +297,31 @@ namespace Goudkoorts
                         c.current = c.current.down;
                         c.current.setCart(true);
                     }
+                    continue;
                 }
 
                 if (c.current.GetType().BaseType == typeof(RideTrack)) //2. sta ik op een type ridetrack
                 {
-                    if (c.current.right.GetType().BaseType == typeof(RideTrack)) //2.1 is rechts van het type ridetrack
+                    if (c.current.GetType() == typeof(Pier)) //fill ship
                     {
-                        if (c.current.right != c.previous) //2.1.1 is dat niet mijn vorige
-                        {
-                            Direction(c, "right");//ga naar rechts
-                            continue;
-                        }
+                        ship.fill += 1;
+                        Points += 1; //add 1 point
                     }
 
-                    if (c.current.left.GetType().BaseType == typeof(RideTrack))//2.2 is links van het type ridetrack
+                    if (c.current.right.GetType().BaseType == typeof(RideTrack) && c.current.right != c.previous) //2.1 is rechts van het type ridetrack en is dat niet mijn vorige
                     {
-                        if (c.current.left != c.previous)//2.2.1 is dat niet mijn vorige
-                        {
+                        Direction(c, "right");//ga naar rechts
+                            continue;
+                    }
+
+                    if (c.current.left.GetType().BaseType == typeof(RideTrack) && c.current.left != c.previous)//2.2 is links van het type ridetrack en is dat niet mijn vorige
+                    {
                             Direction(c, "left");//ga naar links
                             continue;
-                        }
                     }
 
-                    if (c.current.up.GetType().BaseType == typeof(RideTrack))//2.3 is boven van het type ridetrack
+                    if (c.current.up.GetType().BaseType == typeof(RideTrack) && c.current.up != c.previous)//2.3 is boven van het type ridetrack en is dat niet mijn vorige
                     {
-                        if (c.current.up != c.previous)//2.3.1 is dat niet mijn vorige
-                        {
                             if (c.current.GetType() == typeof(SwitchTrack) && c.current.up == c.current.next)//2.3.1.1 sta ik op een switchtrack en is boven hetzelfde als mijn current.next
                             {
                                 Direction(c, "up"); //ga naar boven
@@ -326,13 +331,10 @@ namespace Goudkoorts
                                 Direction(c, "up"); //ga naar boven
                                 continue;
                             }
-                        }
                     }
 
-                    if (c.current.down.GetType().BaseType == typeof(RideTrack)) //2.4 is onder van het type ridetrack
+                    if (c.current.down.GetType().BaseType == typeof(RideTrack) && c.current.down != c.previous) //2.4 is onder van het type ridetrack en is dat niet mijn vorige
                     {
-                        if (c.current.down != c.previous) //2.4.1 is dat niet mijn vorige
-                        {
                             if (c.current.GetType() == typeof(SwitchTrack) && c.current.down == c.current.next)//2.4.1.1 sta ik op een switchtrack en is onder hetzelfde als mijn current.next
                             {
                                 Direction(c, "down"); //ga naar onder
@@ -342,14 +344,7 @@ namespace Goudkoorts
                                 Direction(c, "down"); //ga naar onder
                                 continue;
                             }
-                        }
                     }
-                }
-                if (c.current.GetType() == typeof(Pier)) //fill ship
-                {
-                    Ship s = (Ship)c.current.up;
-                    s.fill += 1;
-                    Points += 1; //add 1 point
                 }
             }
         }

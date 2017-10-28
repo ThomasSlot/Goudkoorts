@@ -48,7 +48,7 @@
   <Class Name="Goudkoorts.RideTrack" Collapsed="true">
     <Position X="7.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAIAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Model\RideTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -103,7 +103,7 @@
   <Class Name="Goudkoorts.GameItem" Collapsed="true">
     <Position X="5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAACAACAAAAAAIABAAAgAAMAACAAABgAgIAgAA=</HashCode>
+      <HashCode>AAAAAAAAAAACAAAAAAIABAAAgAAMAACAAABgAgIAgAA=</HashCode>
       <FileName>Model\GameItem.cs</FileName>
     </TypeIdentifier>
   </Class>
