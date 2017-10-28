@@ -18,8 +18,8 @@ namespace Goudkoorts
 
         public bool createCart(Random r)
         {
-            int x = r.Next(11);
-            if(x > 5)
+            int x = r.Next(20);
+            if(x > 15)
             {
                 return true;
             }

@@ -39,6 +39,7 @@ namespace Goudkoorts
             Console.WriteLine("Points:" + Points);
             Console.WriteLine("ShipFull (0/4): " + fill);
             Console.WriteLine("");
+            Console.WriteLine("-----------------");
 
             for (int x = 0; x < shipyard.Level.Count(); x++) //actual game
             {
@@ -55,9 +56,10 @@ namespace Goudkoorts
                         Console.Write(g.name);
                     }
                 }
-                Console.WriteLine(" ");
+                Console.WriteLine(" |");
             }
 
+            Console.WriteLine("________________");
             Console.WriteLine("Controls:");
             Console.WriteLine("1 - Switch MergeTrack  1         4 - Switch SwitchTrack 2");
             Console.WriteLine("2 - Switch SwitchTrack 1         5 - Switch MergeTrack  3");
@@ -68,6 +70,7 @@ namespace Goudkoorts
             Console.WriteLine("R - RegularTrack                 B - Boat");
             Console.WriteLine("S - SwitchTrack                  C - ClassificationYard");
             Console.WriteLine("M - MergeTrack                   X - EndTrack");
+            Console.WriteLine("Choose a number to Switch:");
         }
 
     }

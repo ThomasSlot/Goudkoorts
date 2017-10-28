@@ -51,7 +51,7 @@ namespace Goudkoorts
                     switch (c)
                     {
                         case '-':
-                            Level[y].Insert(x, new Empty("-", x, y));
+                            Level[y].Insert(x, new Empty(" ", x, y));
                             break;
                         case 'B':
                             ship = new Ship("B", x, y);
@@ -61,7 +61,7 @@ namespace Goudkoorts
                             Level[y].Insert(x, new EndTrack("X", x, y));
                             break;
                         case 'R':
-                            Level[y].Insert(x, new RegularTrack("R", x, y));
+                            Level[y].Insert(x, new RegularTrack("=", x, y));
                             break;
                         case 'P':
                             Level[y].Insert(x, new Pier("P", x, y));
@@ -160,8 +160,7 @@ namespace Goudkoorts
                             {
                                 Level[y][x].next = Level[y][x].down;
                                 Level[y][x].up.color = ConsoleColor.Red;
-                            }
-                            else
+                            } else
                             {
                                 Level[y][x].next = Level[y][x].up;
                                 Level[y][x].down.color = ConsoleColor.Red;
@@ -312,14 +311,14 @@ namespace Goudkoorts
                     }
                     else if (c.current.up.GetType().BaseType == typeof(RideTrack) && c.current.up != c.previous)//if up = track
                     {
-                        if (c.current.color != ConsoleColor.Red)//if down = open mergetrack
+                        if (c.current.up.color != ConsoleColor.Red)//if up = open switch
                         {
                             Direction(c, "up");
                         }
                     }
                     else if (c.current.down.GetType().BaseType == typeof(RideTrack) && c.current.down != c.previous)//if down = track
                     {
-                        if (c.current.color != ConsoleColor.Red)//if down = open mergetrack
+                        if (c.current.down.color != ConsoleColor.Red)//if down = open switch
                         {
                             Direction(c, "down");
                         } 
@@ -330,8 +329,6 @@ namespace Goudkoorts
                     Ship s = (Ship) c.current.up;
                     s.fill += 1;
                     Points += 1; //add 1 point
-                    Console.WriteLine("Ship filled: " + c.current.GetType() + ", " + s.fill);
-                    Console.ReadLine();
                 }            
             }
         }
