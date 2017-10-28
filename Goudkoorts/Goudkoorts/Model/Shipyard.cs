@@ -312,13 +312,15 @@ namespace Goudkoorts
                     }
                     else if (c.current.up.GetType().BaseType == typeof(RideTrack) && c.current.up != c.previous)//if up = track
                     {
-                        Direction(c, "up");
+                        if (c.current.color != ConsoleColor.Red)//if down = open mergetrack
+                        {
+                            Direction(c, "up");
+                        }
                     }
                     else if (c.current.down.GetType().BaseType == typeof(RideTrack) && c.current.down != c.previous)//if down = track
                     {
                         if (c.current.color != ConsoleColor.Red)//if down = open mergetrack
                         {
-                            Console.WriteLine("ik mag naar beneden");
                             Direction(c, "down");
                         } 
                     }
