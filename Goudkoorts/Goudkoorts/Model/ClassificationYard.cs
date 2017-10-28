@@ -7,12 +7,12 @@ namespace Goudkoorts
 {
     public class ClassificationYard : RideTrack
     {
-        public ClassificationYard(string name, int x, int y)
+        public ClassificationYard(string Name, int X, int Y)
         {
-            this.name = name;
-            this.temp = name;
-            this.x = x;
-            this.y = y;
+            this.Name = Name;
+            this.Temp = Name;
+            this.X = X;
+            this.Y = Y;
         }
     }
 }

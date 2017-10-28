@@ -103,34 +103,34 @@ namespace Goudkoorts
 
         public void SetSides(int a, int b) //set joining sides
         {
-            if (Level[a][b].x > 0) //left
+            if (Level[a][b].X > 0) //left
             {
-                Level[a][b].left = Level[a][b-1];
+                Level[a][b].Left = Level[a][b-1];
             }
-            if(Level[a][b].x < Level[0].Count()) //right
+            if(Level[a][b].X < Level[0].Count()) //right
             {
-                Level[a][b].right = Level[a][b+1];
+                Level[a][b].Right = Level[a][b+1];
             }
-            if(Level[a][b].y < Level.Count() - 1) //down
+            if(Level[a][b].Y < Level.Count() - 1) //down
             {
-                Level[a][b].down = Level[a+1][b];
+                Level[a][b].Down = Level[a+1][b];
             }
-            if(Level[a][b].y > 0) //up
+            if(Level[a][b].Y > 0) //up
             {
-                Level[a][b].up = Level[a-1][b];
+                Level[a][b].Up = Level[a-1][b];
             }
 
             //set openside of merge/switchtrack
             if (Level[a][b].GetType() == typeof(MergeTrack))
             {
-                Level[a][b].previous = Level[a][b].up;
-                Level[a][b].down.color = ConsoleColor.Red;
-                Level[a][b].previous.color = ConsoleColor.Green;
+                Level[a][b].Previous = Level[a][b].Up;
+                Level[a][b].Down.Color = ConsoleColor.Red;
+                Level[a][b].Previous.Color = ConsoleColor.Green;
             } else if(Level[a][b].GetType() == typeof(SwitchTrack))
             {
-                Level[a][b].next = Level[a][b].up;
-                Level[a][b].down.color = ConsoleColor.Red;
-                Level[a][b].next.color = ConsoleColor.Green;
+                Level[a][b].Next = Level[a][b].Up;
+                Level[a][b].Down.Color = ConsoleColor.Red;
+                Level[a][b].Next.Color = ConsoleColor.Green;
             }
         }
 
@@ -141,7 +141,7 @@ namespace Goudkoorts
             {
                 for (int x = 0; x < Level[y].Count() - 1; x++) //x-size
                 {
-                    if (!Level[y][x].hasCart)
+                    if (!Level[y][x].HasCart)
                     {
                         j = Level[y][x].SwitchNumber.ToString();
 
@@ -149,31 +149,31 @@ namespace Goudkoorts
                         {
                             if (Level[y][x].GetType() == typeof(MergeTrack)) //switch mergetrack
                             {
-                                if (Level[y][x].previous != Level[y][x].down)
+                                if (Level[y][x].Previous != Level[y][x].Down)
                                 {
-                                    Level[y][x].previous = Level[y][x].down;
-                                    Level[y][x].up.color = ConsoleColor.Red;
+                                    Level[y][x].Previous = Level[y][x].Down;
+                                    Level[y][x].Up.Color = ConsoleColor.Red;
                                 }
                                 else
                                 {
-                                    Level[y][x].previous = Level[y][x].up;
-                                    Level[y][x].down.color = ConsoleColor.Red;
+                                    Level[y][x].Previous = Level[y][x].Up;
+                                    Level[y][x].Down.Color = ConsoleColor.Red;
                                 }
-                                Level[y][x].previous.color = ConsoleColor.Green;
+                                Level[y][x].Previous.Color = ConsoleColor.Green;
                             }
                             else if (Level[y][x].GetType() == typeof(SwitchTrack))//switch switchtrack
                             {
-                                if (Level[y][x].next != Level[y][x].down)
+                                if (Level[y][x].Next != Level[y][x].Down)
                                 {
-                                    Level[y][x].next = Level[y][x].down;
-                                    Level[y][x].up.color = ConsoleColor.Red;
+                                    Level[y][x].Next = Level[y][x].Down;
+                                    Level[y][x].Up.Color = ConsoleColor.Red;
                                 }
                                 else
                                 {
-                                    Level[y][x].next = Level[y][x].up;
-                                    Level[y][x].down.color = ConsoleColor.Red;
+                                    Level[y][x].Next = Level[y][x].Up;
+                                    Level[y][x].Down.Color = ConsoleColor.Red;
                                 }
-                                Level[y][x].next.color = ConsoleColor.Green;
+                                Level[y][x].Next.Color = ConsoleColor.Green;
                             }
                         }
                     }
@@ -194,10 +194,10 @@ namespace Goudkoorts
                     if(Level[i][j].GetType() == typeof(Warehouse))
                     {
                         w = (Warehouse)Level[i][j];
-                        if(w.createCart(r, Difficulty))
+                        if(w.CreateCart(r, Difficulty))
                         {
                             cart = new Cart(i, j);
-                            cart.current = Level[i][j];
+                            cart.Current = Level[i][j];
                             carts.Add(cart);
                         }
                     }
@@ -231,11 +231,11 @@ namespace Goudkoorts
 
         public bool checkPoints()
         {
-            if(ship.fill >= 4) //if ship is full;
+            if(ship.Fill >= 4) //if ship is full;
             {
                 Difficulty += 2; //set difficulty higher
                 Points += 10;
-                ship.fill = 0;
+                ship.Fill = 0;
             }
 
             if(Points >= 36)
@@ -251,7 +251,7 @@ namespace Goudkoorts
             {
                 for (int i = 0; i < carts.Count() - 1; i++)
                 {
-                    if (carts[i].current.GetType() == typeof(EndTrack))
+                    if (carts[i].Current.GetType() == typeof(EndTrack))
                     {
                         carts.RemoveAt(i);
                     }
@@ -265,7 +265,7 @@ namespace Goudkoorts
             {
                 for(int i = 0; i < carts.Count() - 1; i++)
                 {
-                    if(carts[i].current == carts[i + 1].current)
+                    if(carts[i].Current == carts[i + 1].Current)
                     {
                         return true; //game over
                     }
@@ -278,79 +278,79 @@ namespace Goudkoorts
         {
             foreach (Cart c in carts)
             {
-                if (c.current.GetType() == typeof(Warehouse)) //if warehouse
+                if (c.Current.GetType() == typeof(Warehouse)) //if warehouse
                 {
-                    c.previous = c.current; //set previous
-                    if (c.current.left.GetType().BaseType == typeof(RideTrack)) //if left track
+                    c.Previous = c.Current; //set previous
+                    if (c.Current.Left.GetType().BaseType == typeof(RideTrack)) //if left track
                     {
-                        c.current = c.current.left;
-                        c.current.setCart(true);
+                        c.Current = c.Current.Left;
+                        c.Current.SetCart(true);
                     }
-                    else if (c.current.right.GetType().BaseType == typeof(RideTrack))//if right track
+                    else if (c.Current.Right.GetType().BaseType == typeof(RideTrack))//if right track
                     {
-                        c.current = c.current.right;
-                        c.current.setCart(true);
+                        c.Current = c.Current.Right;
+                        c.Current.SetCart(true);
                     }
-                    else if (c.current.up.GetType().BaseType == typeof(RideTrack))//if up track
+                    else if (c.Current.Up.GetType().BaseType == typeof(RideTrack))//if up track
                     {
-                        c.current = c.current.up;
-                        c.current.setCart(true);
+                        c.Current = c.Current.Up;
+                        c.Current.SetCart(true);
                     }
-                    else if (c.current.down.GetType().BaseType == typeof(RideTrack))//if down track
+                    else if (c.Current.Down.GetType().BaseType == typeof(RideTrack))//if down track
                     {
-                        c.current = c.current.down;
-                        c.current.setCart(true);
+                        c.Current = c.Current.Down;
+                        c.Current.SetCart(true);
                     }
                     continue;
                 }
 
-                if (c.current.GetType().BaseType == typeof(RideTrack)) //current ridetrack
+                if (c.Current.GetType().BaseType == typeof(RideTrack)) //current ridetrack
                 {
-                    if (c.current.GetType() == typeof(Pier)) //fill ship
+                    if (c.Current.GetType() == typeof(Pier)) //fill ship
                     {
-                        ship.fill += 1;
+                        ship.Fill += 1;
                         Points += 1; //add 1 point
                     }
 
-                    if (c.current.right.GetType().BaseType == typeof(RideTrack) && c.current.right != c.previous) //check right
+                    if (c.Current.Right.GetType().BaseType == typeof(RideTrack) && c.Current.Right != c.Previous) //check right
                     {
                         Direction(c, "right");//go right
                             continue;
                     }
 
-                    if (c.current.left.GetType().BaseType == typeof(RideTrack) && c.current.left != c.previous)//check left
+                    if (c.Current.Left.GetType().BaseType == typeof(RideTrack) && c.Current.Left != c.Previous)//check left
                     {
-                        if (c.current.GetType() == typeof(ClassificationYard) && !c.current.left.hasCart) //classification yard
+                        if (c.Current.GetType() == typeof(ClassificationYard) && !c.Current.Left.HasCart) //classification yard
                         {
                             Direction(c, "left");//go left
                             continue;
-                        } else if (c.current.GetType() == typeof(RegularTrack) || c.current.GetType() == typeof(Pier))
+                        } else if (c.Current.GetType() == typeof(RegularTrack) || c.Current.GetType() == typeof(Pier))
                         {
                             Direction(c, "left");//go left
                             continue;
                         } 
                     }
 
-                    if (c.current.up.GetType().BaseType == typeof(RideTrack) && c.current.up != c.previous)//check up
+                    if (c.Current.Up.GetType().BaseType == typeof(RideTrack) && c.Current.Up != c.Previous)//check up
                     {
-                            if (c.current.GetType() == typeof(SwitchTrack) && c.current.up == c.current.next)//check switchtrack
+                            if (c.Current.GetType() == typeof(SwitchTrack) && c.Current.Up == c.Current.Next)//check switchtrack
                             {
                                 Direction(c, "up"); //go up
                                 continue;
-                            } else if (c.current.GetType() == typeof(RegularTrack)) //check regulartrack
+                            } else if (c.Current.GetType() == typeof(RegularTrack)) //check regulartrack
                             {
                                 Direction(c, "up"); //go up
                                 continue;
                             }
                     }
 
-                    if (c.current.down.GetType().BaseType == typeof(RideTrack) && c.current.down != c.previous) //check down
+                    if (c.Current.Down.GetType().BaseType == typeof(RideTrack) && c.Current.Down != c.Previous) //check down
                     {
-                            if (c.current.GetType() == typeof(SwitchTrack) && c.current.down == c.current.next)//check switchtrack
+                            if (c.Current.GetType() == typeof(SwitchTrack) && c.Current.Down == c.Current.Next)//check switchtrack
                             {
                                 Direction(c, "down"); //go down
                                 continue;
-                            } else if (c.current.GetType() == typeof(RegularTrack))//check regulartrack
+                            } else if (c.Current.GetType() == typeof(RegularTrack))//check regulartrack
                             {
                                 Direction(c, "down"); //go down
                                 continue;
@@ -362,26 +362,26 @@ namespace Goudkoorts
 
         public void Direction(Cart c, string direction)
         {
-            c.previous = c.current;
-            c.previous.setCart(false);
+            c.Previous = c.Current;
+            c.Previous.SetCart(false);
 
             switch (direction)
             {
                 case "left":
-                    c.current = c.current.left;
+                    c.Current = c.Current.Left;
                     break;
                 case "right":
-                    c.current = c.current.right;
+                    c.Current = c.Current.Right;
                     break;
                 case "up":
-                    c.current = c.current.up;
+                    c.Current = c.Current.Up;
                     break;
                 case "down":
-                    c.current = c.current.down;
+                    c.Current = c.Current.Down;
                     break;
             }
 
-            c.current.setCart(true);
+            c.Current.SetCart(true);
         }
     }
 }

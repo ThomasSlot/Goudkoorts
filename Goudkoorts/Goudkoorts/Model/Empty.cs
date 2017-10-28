@@ -7,11 +7,11 @@ namespace Goudkoorts
 {
     public class Empty : GameItem
     {
-        public Empty(string name, int x, int y)
+        public Empty(string Name, int X, int Y)
         {
-            this.name = name;
-            this.x = x;
-            this.y = y;
+            this.Name = Name;
+            this.X = X;
+            this.Y = Y;
         }
 
     }

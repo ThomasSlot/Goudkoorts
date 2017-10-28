@@ -8,18 +8,18 @@ namespace Goudkoorts
     public class Warehouse : GameItem
     {
 
-        public Warehouse(string name, int x, int y)
+        public Warehouse(string Name, int X, int Y)
         {
-            this.name = name;
-            this.temp = name;
-            this.x = x;
-            this.y = y;
+            this.Name = Name;
+            this.Temp = Name;
+            this.X = X;
+            this.Y = Y;
         }
 
-        public bool createCart(Random r, int dif)
+        public bool CreateCart(Random R, int Dif)
         {
-            int x = r.Next(100);
-            if(x < dif*20)
+            int X = R.Next(100);
+            if(X < Dif*20)
             {
                 return true;
             }

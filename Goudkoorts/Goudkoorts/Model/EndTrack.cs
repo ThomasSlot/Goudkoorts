@@ -7,12 +7,12 @@ namespace Goudkoorts
 {
     public class EndTrack : RideTrack
     {
-        public EndTrack(string name, int x, int y)
+        public EndTrack(string Name, int X, int Y)
         {
-            this.name = name;
-            this.temp = name;
-            this.x = x;
-            this.y = y;
+            this.Name = Name;
+            this.Temp = Name;
+            this.X = X;
+            this.Y = Y;
         }
     }
 }

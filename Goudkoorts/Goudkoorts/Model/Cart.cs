@@ -7,11 +7,11 @@ namespace Goudkoorts
 {
     public class Cart : GameItem
     {
-        public Cart(int y, int x)
+        public Cart(int Y, int X)
         {
-            this.y = y;
-            this.x = x;
-            name = "Z";
+            this.Y = Y;
+            this.X = X;
+            Name = "Z";
         }
     }
 }

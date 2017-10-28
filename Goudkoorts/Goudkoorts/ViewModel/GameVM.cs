@@ -70,7 +70,7 @@ namespace Goudkoorts
                         for (int a = 11 - DifficultyLevel; a >=0; a--) //timer
                         {
                             Console.CursorLeft = 22;
-                            GameView.ShowGame(Shipyard, a, Shipyard.carts.Count(), Shipyard.carts, Shipyard.Points, Shipyard.ship.fill, DifficultyLevel);
+                            GameView.ShowGame(Shipyard, a, Shipyard.carts.Count(), Shipyard.carts, Shipyard.Points, Shipyard.ship.Fill, DifficultyLevel);
                             System.Threading.Thread.Sleep(1000);
                         }
 

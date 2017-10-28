@@ -7,42 +7,42 @@ namespace Goudkoorts
 {
     public class GameItem
     {
-        public GameItem right { get; set; }
-        public GameItem left { get; set; }
-        public GameItem up { get; set; }
-        public GameItem down { get; set; }
-        public GameItem current { get; set; }
-        public GameItem previous { get; set; }
-        public GameItem next { get; set; }
+        public GameItem Right { get; set; }
+        public GameItem Left { get; set; }
+        public GameItem Up { get; set; }
+        public GameItem Down { get; set; }
+        public GameItem Current { get; set; }
+        public GameItem Previous { get; set; }
+        public GameItem Next { get; set; }
 
-        public int x { get; set; }
-        public int y { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
 
-        public ConsoleColor color { get; set; }
+        public ConsoleColor Color { get; set; }
 
         public int SwitchNumber { get; set; }
 
-        public string name { get; set; }
+        public string Name { get; set; }
 
-        public string temp { get; set; }
+        public string Temp { get; set; }
 
-        public bool hasCart { get; set; }
+        public bool HasCart { get; set; }
         
         public GameItem()
         {
-            hasCart = false;
+            HasCart = false;
         }
             
-        public void setCart(bool b)
+        public void SetCart(bool b)
         {
             if (b)
             {
-                name = "Z";
-                hasCart = true;
+                Name = "Z";
+                HasCart = true;
             }else
             {
-                name = temp;
-                hasCart = false;
+                Name = Temp;
+                HasCart = false;
             }
         }
           

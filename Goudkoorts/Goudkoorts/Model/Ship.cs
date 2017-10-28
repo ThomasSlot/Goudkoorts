@@ -7,14 +7,14 @@ namespace Goudkoorts
 {
     public class Ship : GameItem
     {
-        public int fill { get; set; }
+        public int Fill { get; set; }
 
-        public Ship(string name, int x, int y)
+        public Ship(string Name, int X, int Y)
         {
-            this.name = name;
-            this.x = x;
-            this.y = y;
-            fill = 0;
+            this.Name = Name;
+            this.X = X;
+            this.Y = Y;
+            Fill = 0;
         }
     }
 }

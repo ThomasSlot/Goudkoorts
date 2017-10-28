@@ -7,12 +7,12 @@ namespace Goudkoorts
 {
     public class MergeTrack : RideTrack
     {
-        public MergeTrack(string name, int x, int y)
+        public MergeTrack(string Name, int X, int Y)
         {
-            this.name = name;
-            this.temp = name;
-            this.x = x;
-            this.y = y;
+            this.Name = Name;
+            this.Temp = Name;
+            this.X = X;
+            this.Y = Y;
         }
     }
 }

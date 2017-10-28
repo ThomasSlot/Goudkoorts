@@ -7,12 +7,12 @@ namespace Goudkoorts
 {
     public class Pier : RideTrack
     {
-        public Pier(string name, int x, int y)
+        public Pier(string Name, int X, int Y)
         {
-            this.name = name;
-            this.temp = name;
-            this.x = x;
-            this.y = y;
+            this.Name = Name;
+            this.Temp = Name;
+            this.X = X;
+            this.Y = Y;
         }
     }
 }
