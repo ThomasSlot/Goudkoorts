@@ -291,40 +291,37 @@ namespace Goudkoorts
                         c.current = c.current.down;
                         c.current.setCart(true);
                     }
-                } else if (c.current.GetType().BaseType == typeof(RideTrack)) //if track
+                }
+                else if (c.current.GetType().BaseType == typeof(RideTrack)) //if track
                 {
-                   if (c.current.left.GetType().BaseType == typeof(RideTrack) && c.current.left != c.previous) //if left = track
+                    if (c.current.left.GetType().BaseType == typeof(RideTrack) && c.current.left != c.previous)//if left = track
                     {
                         if (c.current.left.GetType() == typeof(ClassificationYard) && c.current.left.hasCart == false) //if left = classificationyard and not has cart
                         {
                             Direction(c, "left");
-                        } else if (c.current.left.GetType() != typeof(ClassificationYard))
+                        }
+                        else if (c.current.left.GetType() != typeof(ClassificationYard))
                         {
                             Direction(c, "left");
                         }
-                    }
-                    else if (c.current.right.GetType().BaseType == typeof(RideTrack) && c.current.right != c.previous)//if right = track
+                    } else if (c.current.right.GetType().BaseType == typeof(RideTrack) && c.current.right != c.previous)//if right = track
                     {
                         Direction(c, "right");
-                    }
-                    else if (c.current.up.GetType().BaseType == typeof(RideTrack) && c.current.up != c.previous)//if up = track
+                    } else if (c.current.up.GetType().BaseType == typeof(RideTrack) && c.current.up != c.previous)//if up = track
                     {
                         if (c.current.color != ConsoleColor.Red && c.current.up.color != ConsoleColor.Red)//if up = open switch
                         {
                             Direction(c, "up");
                         }
-                    }
-                    else if (c.current.down.GetType().BaseType == typeof(RideTrack) && c.current.down != c.previous)//if down = track
+                    } else if (c.current.down.GetType().BaseType == typeof(RideTrack) && c.current.down != c.previous)//if down = track
                     {
-                        if (c.current.color == ConsoleColor.Green)//if down = open switch
-                        {
-                            Direction(c, "down");
-                        } else if(c.current.down.color == ConsoleColor.Green)
+                        if (c.current.down.color != ConsoleColor.Red)//if down = open switch
                         {
                             Direction(c, "down");
                         }
                     }
-                } 
+                }
+  
                 if(c.current.GetType() == typeof(Pier)) //fill ship
                 {
                     Ship s = (Ship) c.current.up;
