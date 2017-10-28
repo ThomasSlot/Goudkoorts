@@ -19,9 +19,12 @@ namespace Goudkoorts
 
         public int Points { get; set; }
 
+        public int Difficulty { get; set; }
+
         public Shipyard()
         {
             carts = new List<Cart>();
+            Difficulty = 1;
         }
 
         public void setNumber(int i)
@@ -60,7 +63,7 @@ namespace Goudkoorts
                         case 'X':
                             Level[y].Insert(x, new EndTrack("X", x, y));
                             break;
-                        case 'R':
+                        case '=':
                             Level[y].Insert(x, new RegularTrack("=", x, y));
                             break;
                         case 'P':
@@ -191,7 +194,7 @@ namespace Goudkoorts
                     if(Level[i][j].GetType() == typeof(Warehouse))
                     {
                         w = (Warehouse)Level[i][j];
-                        if(w.createCart(r))
+                        if(w.createCart(r, Difficulty))
                         {
                             cart = new Cart(i, j);
                             cart.current = Level[i][j];
@@ -230,6 +233,7 @@ namespace Goudkoorts
         {
             if(ship.fill >= 4) //if ship is full;
             {
+                Difficulty += 2; //set difficulty higher
                 Points += 10;
                 ship.fill = 0;
             }
@@ -300,7 +304,7 @@ namespace Goudkoorts
                     continue;
                 }
 
-                if (c.current.GetType().BaseType == typeof(RideTrack)) //2. sta ik op een type ridetrack
+                if (c.current.GetType().BaseType == typeof(RideTrack)) //current ridetrack
                 {
                     if (c.current.GetType() == typeof(Pier)) //fill ship
                     {
@@ -308,40 +312,47 @@ namespace Goudkoorts
                         Points += 1; //add 1 point
                     }
 
-                    if (c.current.right.GetType().BaseType == typeof(RideTrack) && c.current.right != c.previous) //2.1 is rechts van het type ridetrack en is dat niet mijn vorige
+                    if (c.current.right.GetType().BaseType == typeof(RideTrack) && c.current.right != c.previous) //check right
                     {
-                        Direction(c, "right");//ga naar rechts
+                        Direction(c, "right");//go right
                             continue;
                     }
 
-                    if (c.current.left.GetType().BaseType == typeof(RideTrack) && c.current.left != c.previous)//2.2 is links van het type ridetrack en is dat niet mijn vorige
+                    if (c.current.left.GetType().BaseType == typeof(RideTrack) && c.current.left != c.previous)//check left
                     {
-                            Direction(c, "left");//ga naar links
+                        if (c.current.GetType() == typeof(ClassificationYard) && !c.current.left.hasCart) //classification yard
+                        {
+                            Direction(c, "left");//go left
                             continue;
+                        } else if (c.current.GetType() == typeof(RegularTrack) || c.current.GetType() == typeof(Pier))
+                        {
+                            Direction(c, "left");//go left
+                            continue;
+                        } 
                     }
 
-                    if (c.current.up.GetType().BaseType == typeof(RideTrack) && c.current.up != c.previous)//2.3 is boven van het type ridetrack en is dat niet mijn vorige
+                    if (c.current.up.GetType().BaseType == typeof(RideTrack) && c.current.up != c.previous)//check up
                     {
-                            if (c.current.GetType() == typeof(SwitchTrack) && c.current.up == c.current.next)//2.3.1.1 sta ik op een switchtrack en is boven hetzelfde als mijn current.next
+                            if (c.current.GetType() == typeof(SwitchTrack) && c.current.up == c.current.next)//check switchtrack
                             {
-                                Direction(c, "up"); //ga naar boven
+                                Direction(c, "up"); //go up
                                 continue;
-                            } else if (c.current.GetType() == typeof(RegularTrack)) //2.3.1.2 sta ik op een regulartrack
+                            } else if (c.current.GetType() == typeof(RegularTrack)) //check regulartrack
                             {
-                                Direction(c, "up"); //ga naar boven
+                                Direction(c, "up"); //go up
                                 continue;
                             }
                     }
 
-                    if (c.current.down.GetType().BaseType == typeof(RideTrack) && c.current.down != c.previous) //2.4 is onder van het type ridetrack en is dat niet mijn vorige
+                    if (c.current.down.GetType().BaseType == typeof(RideTrack) && c.current.down != c.previous) //check down
                     {
-                            if (c.current.GetType() == typeof(SwitchTrack) && c.current.down == c.current.next)//2.4.1.1 sta ik op een switchtrack en is onder hetzelfde als mijn current.next
+                            if (c.current.GetType() == typeof(SwitchTrack) && c.current.down == c.current.next)//check switchtrack
                             {
-                                Direction(c, "down"); //ga naar onder
+                                Direction(c, "down"); //go down
                                 continue;
-                            } else if (c.current.GetType() == typeof(RegularTrack))//2.4.1.2 sta ik op een regulartrack
+                            } else if (c.current.GetType() == typeof(RegularTrack))//check regulartrack
                             {
-                                Direction(c, "down"); //ga naar onder
+                                Direction(c, "down"); //go down
                                 continue;
                             }
                     }

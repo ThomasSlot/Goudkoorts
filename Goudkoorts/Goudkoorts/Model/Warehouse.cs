@@ -16,10 +16,10 @@ namespace Goudkoorts
             this.y = y;
         }
 
-        public bool createCart(Random r)
+        public bool createCart(Random r, int dif)
         {
-            int x = r.Next(20);
-            if(x > 1)
+            int x = r.Next(100);
+            if(x < dif*20)
             {
                 return true;
             }

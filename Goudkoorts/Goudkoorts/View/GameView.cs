@@ -28,16 +28,16 @@ namespace Goudkoorts
             Console.WriteLine("Press R to return to Menu");
         }
 
-        public void ShowGame(Shipyard s, int time, int cart, List<Cart> carts, int Points, int fill)
+        public void ShowGame(Shipyard s, int time, int cart, List<Cart> carts, int Points, int fill, int dif)
         {
             shipyard = s;
 
             Console.Clear();
 
             Console.WriteLine("TIMER:" + time);
-            Console.WriteLine("Carts:" + cart);
+            Console.WriteLine("Carts:" + cart + "  Difficulty:" + dif);
             Console.WriteLine("Points:" + Points);
-            Console.WriteLine("ShipFull (0/4): " + fill);
+            Console.WriteLine("ShipFull (" + fill + "/4): ");
             Console.WriteLine("");
             Console.WriteLine("-----------------");
 
@@ -67,7 +67,7 @@ namespace Goudkoorts
             Console.WriteLine("R - Return To Menu");
             Console.WriteLine("Signs:");
             Console.WriteLine("W - Warehouse                    P - Pier");
-            Console.WriteLine("R - RegularTrack                 B - Boat");
+            Console.WriteLine("= - RegularTrack                 B - Boat");
             Console.WriteLine("S - SwitchTrack                  C - ClassificationYard");
             Console.WriteLine("M - MergeTrack                   X - EndTrack");
             Console.WriteLine("Choose a number to Switch:");

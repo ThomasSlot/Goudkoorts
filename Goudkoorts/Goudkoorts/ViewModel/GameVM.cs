@@ -15,6 +15,8 @@ namespace Goudkoorts
 
         public Shipyard Shipyard { get; set; }
 
+        public int DifficultyLevel { get; set; }
+
         public GameVM()
         {
             //initialize views
@@ -45,7 +47,7 @@ namespace Goudkoorts
                     bool start = true;
                     while (playing) //playing the game
                     {
-                        if (!start)
+                        if (!start) //only use when its not the start of the game
                         {
                             string input = UserInput.getInput();
                             if (input.Equals("R")) //return to menu
@@ -63,10 +65,12 @@ namespace Goudkoorts
                         }
                         start = false;
 
-                        for (int a = 3; a >=0; a--) //timer
+                        DifficultyLevel = Shipyard.Difficulty; //set difficulty
+
+                        for (int a = 11 - DifficultyLevel; a >=0; a--) //timer
                         {
                             Console.CursorLeft = 22;
-                            GameView.ShowGame(Shipyard, a, Shipyard.carts.Count(), Shipyard.carts, Shipyard.Points, Shipyard.ship.fill);
+                            GameView.ShowGame(Shipyard, a, Shipyard.carts.Count(), Shipyard.carts, Shipyard.Points, Shipyard.ship.fill, DifficultyLevel);
                             System.Threading.Thread.Sleep(1000);
                         }
 
