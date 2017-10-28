@@ -37,19 +37,19 @@ namespace Goudkoorts
             while (!stopped) //check if player decided to stop
             {
                 MenuView.ShowMenu();
-                if (UserInput.getInput().Equals("S")) //player starts game
+                if (UserInput.GetInput().Equals("S")) //player starts game
                 {
                     Shipyard = new Shipyard(); //create actual game
                     playing = true;
-                    Shipyard.setNumber(1);
-                    Shipyard.create();
+                    Shipyard.SetNumber(1);
+                    Shipyard.Create();
 
                     bool start = true;
                     while (playing) //playing the game
                     {
                         if (!start) //only use when its not the start of the game
                         {
-                            string input = UserInput.getInput();
+                            string input = UserInput.GetInput();
                             if (input.Equals("R")) //return to menu
                             {
                                 break;
@@ -70,7 +70,7 @@ namespace Goudkoorts
                         for (int a = 11 - DifficultyLevel; a >=0; a--) //timer
                         {
                             Console.CursorLeft = 22;
-                            GameView.ShowGame(Shipyard, a, Shipyard.carts.Count(), Shipyard.carts, Shipyard.Points, Shipyard.ship.Fill, DifficultyLevel);
+                            GameView.ShowGame(Shipyard, a, Shipyard.Carts.Count(), Shipyard.Carts, Shipyard.Points, Shipyard.Ship.Fill, DifficultyLevel);
                             System.Threading.Thread.Sleep(1000);
                         }
 
@@ -84,7 +84,7 @@ namespace Goudkoorts
                                 GameView.GameWin();
                             }
 
-                            if (UserInput.getInput().Equals("R"))
+                            if (UserInput.GetInput().Equals("R"))
                             {
                                 break;
                             }

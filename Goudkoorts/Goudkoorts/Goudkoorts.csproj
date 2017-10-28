@@ -51,7 +51,7 @@
     <Compile Include="Model\Empty.cs" />
     <Compile Include="Model\GameItem.cs" />
     <Compile Include="Model\EndTrack.cs" />
-    <Compile Include="Model\Shipyard.cs" />
+    <Compile Include="ViewModel\Shipyard.cs" />
     <Compile Include="Model\RegularTrack.cs" />
     <Compile Include="ViewModel\GameVM.cs" />
     <Compile Include="Model\Cart.cs" />

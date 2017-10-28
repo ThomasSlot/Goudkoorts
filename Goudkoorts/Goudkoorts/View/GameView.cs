@@ -17,7 +17,7 @@ namespace Goudkoorts
         public void GameCrash()
         {
             Console.Clear();
-            Console.WriteLine("Two carts crashed into eachother, you died.");
+            Console.WriteLine("Two Carts crashed into eachother, you died.");
             Console.WriteLine("Press R to return to Menu");
         }
 
@@ -28,32 +28,32 @@ namespace Goudkoorts
             Console.WriteLine("Press R to return to Menu");
         }
 
-        public void ShowGame(Shipyard s, int time, int cart, List<Cart> carts, int Points, int fill, int dif)
+        public void ShowGame(Shipyard S, int Time, int Cart, List<Cart> Carts, int Points, int Fill, int Dif)
         {
-            shipyard = s;
+            shipyard = S;
 
             Console.Clear();
 
-            Console.WriteLine("TIMER:" + time);
-            Console.WriteLine("Carts:" + cart + "  Difficulty:" + dif);
+            Console.WriteLine("TIMER:" + Time);
+            Console.WriteLine("Carts:" + Cart + "  Difficulty:" + Dif);
             Console.WriteLine("Points:" + Points);
-            Console.WriteLine("ShipFull (" + fill + "/4): ");
+            Console.WriteLine("ShipFull (" + Fill + "/4): ");
             Console.WriteLine("");
             Console.WriteLine("-----------------");
 
             for (int x = 0; x < shipyard.Level.Count(); x++) //actual game
             {
-                foreach (GameItem g in shipyard.Level[x])
+                foreach (GameItem G in shipyard.Level[x])
                 {
-                    if (g.Color == ConsoleColor.Green || g.Color == ConsoleColor.Red)
+                    if (G.Color == ConsoleColor.Green || G.Color == ConsoleColor.Red)
                     {
-                        Console.ForegroundColor = g.Color;
-                        Console.Write(g.Name);
+                        Console.ForegroundColor = G.Color;
+                        Console.Write(G.Name);
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.White;
-                        Console.Write(g.Name);
+                        Console.Write(G.Name);
                     }
                 }
                 Console.WriteLine(" |");
@@ -68,8 +68,8 @@ namespace Goudkoorts
             Console.WriteLine("Signs:");
             Console.WriteLine("W - Warehouse                    P - Pier");
             Console.WriteLine("= - RegularTrack                 B - Boat");
-            Console.WriteLine("S - SwitchTrack                  C - ClassificationYard");
-            Console.WriteLine("M - MergeTrack                   X - EndTrack");
+            Console.WriteLine("1/5 - SwitchTrack/MergeTrack     C - ClassificationYard");
+            Console.WriteLine("X - EndTrack");
             Console.WriteLine("Choose a number to Switch:");
         }
 

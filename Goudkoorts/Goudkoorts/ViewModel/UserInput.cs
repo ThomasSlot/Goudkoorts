@@ -12,19 +12,19 @@ namespace Goudkoorts
 
         }
 
-        public String getInput()
+        public String GetInput()
         {
             while (true)
             {
-                ConsoleKeyInfo info = Console.ReadKey();
-                string key = info.Key.ToString();
+                ConsoleKeyInfo Info = Console.ReadKey();
+                string Key = Info.Key.ToString();
 
-                switch (key)
+                switch (Key)
                 {
                     case "S":
-                        return key;
+                        return Key;
                     case "R":
-                        return key;
+                        return Key;
                     case "D1":
                         return "1";
                     case "D2":

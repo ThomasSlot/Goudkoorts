@@ -13,9 +13,9 @@ namespace Goudkoorts
 
         public List<List<GameItem>> Level { get; set; }
 
-        public List<Cart> carts { get; set; }
+        public List<Cart> Carts { get; set; }
 
-        public Ship ship { get; set; }
+        public Ship Ship { get; set; }
 
         public int Points { get; set; }
 
@@ -23,21 +23,21 @@ namespace Goudkoorts
 
         public Shipyard()
         {
-            carts = new List<Cart>();
+            Carts = new List<Cart>();
             Difficulty = 1;
         }
 
-        public void setNumber(int i)
+        public void SetNumber(int i)
         {
             ShipyardNumber = i;
         }
 
-        public void create()
+        public void Create()
         {
             //read file
-            string fileName = "Shipyard" + ShipyardNumber + ".txt";
-            string path = Path.Combine(Environment.CurrentDirectory, @"Shipyard\", fileName);
-            string[] lines = File.ReadAllLines(path);
+            string FileName = "Shipyard" + ShipyardNumber + ".txt";
+            string path = Path.Combine(Environment.CurrentDirectory, @"Shipyard\", FileName);
+            string[] Lines = File.ReadAllLines(path);
 
             //playing field
             Level = new List<List<GameItem>>();
@@ -45,11 +45,11 @@ namespace Goudkoorts
             //add items
             int x = 0;
             int Switch = 1;
-            for (int y = 0; y < lines.Length; y++) 
+            for (int y = 0; y < Lines.Length; y++) 
             {
                 Level.Insert(y, new List<GameItem>());
 
-                foreach (char c in lines[y])
+                foreach (char c in Lines[y])
                 {
                     switch (c)
                     {
@@ -57,8 +57,8 @@ namespace Goudkoorts
                             Level[y].Insert(x, new Empty(" ", x, y));
                             break;
                         case 'B':
-                            ship = new Ship("B", x, y);
-                            Level[y].Insert(x, ship);
+                            Ship = new Ship("B", x, y);
+                            Level[y].Insert(x, Ship);
                             break;
                         case 'X':
                             Level[y].Insert(x, new EndTrack("X", x, y));
@@ -183,9 +183,9 @@ namespace Goudkoorts
         
         public int PlayRound()
         {
-            //random cart spawn
+            //random Cart spawn
             Warehouse w;
-            Cart cart;
+            Cart Cart;
             Random r = new Random();
             for (int i = 0; i < Level.Count(); i++) //y-size
             {
@@ -196,46 +196,46 @@ namespace Goudkoorts
                         w = (Warehouse)Level[i][j];
                         if(w.CreateCart(r, Difficulty))
                         {
-                            cart = new Cart(i, j);
-                            cart.Current = Level[i][j];
-                            carts.Add(cart);
+                            Cart = new Cart(i, j);
+                            Cart.Current = Level[i][j];
+                            Carts.Add(Cart);
                         }
                     }
                 }
             }
            
-            //move the carts if there are any
-            if (carts != null)
+            //move the Carts if there are any
+            if (Carts != null)
             {
-                moveCarts();
+                MoveCarts();
             }
 
 
             //check for points
-            if(checkPoints())
+            if(CheckPoints())
             {
                 return 2; //stop game
             }
 
             //check for crash (not classificationyard) and delete if true
-            if (checkCrash())
+            if (CheckCrash())
             {
                 return 3; //stop game
             }
 
             //delete cars if endtrack
-            deleteCart();
+            DeleteCart();
 
             return 1; //entire round played
         }
 
-        public bool checkPoints()
+        public bool CheckPoints()
         {
-            if(ship.Fill >= 4) //if ship is full;
+            if(Ship.Fill >= 4) //if Ship is full;
             {
                 Difficulty += 2; //set difficulty higher
                 Points += 10;
-                ship.Fill = 0;
+                Ship.Fill = 0;
             }
 
             if(Points >= 36)
@@ -245,27 +245,27 @@ namespace Goudkoorts
             return false;
         }
 
-        public void deleteCart()
+        public void DeleteCart()
         {
-            if (carts.Count() >= 1)
+            if (Carts.Count() >= 1)
             {
-                for (int i = 0; i < carts.Count() - 1; i++)
+                for (int i = 0; i < Carts.Count() - 1; i++)
                 {
-                    if (carts[i].Current.GetType() == typeof(EndTrack))
+                    if (Carts[i].Current.GetType() == typeof(EndTrack))
                     {
-                        carts.RemoveAt(i);
+                        Carts.RemoveAt(i);
                     }
                 }
             }
         }
 
-        public bool checkCrash()
+        public bool CheckCrash()
         {
-            if(carts.Count() > 1)
+            if(Carts.Count() > 1)
             {
-                for(int i = 0; i < carts.Count() - 1; i++)
+                for(int i = 0; i < Carts.Count() - 1; i++)
                 {
-                    if(carts[i].Current == carts[i + 1].Current)
+                    if(Carts[i].Current == Carts[i + 1].Current)
                     {
                         return true; //game over
                     }
@@ -274,9 +274,9 @@ namespace Goudkoorts
             return false;
         }
 
-        public void moveCarts()
+        public void MoveCarts()
         {
-            foreach (Cart c in carts)
+            foreach (Cart c in Carts)
             {
                 if (c.Current.GetType() == typeof(Warehouse)) //if warehouse
                 {
@@ -306,9 +306,9 @@ namespace Goudkoorts
 
                 if (c.Current.GetType().BaseType == typeof(RideTrack)) //current ridetrack
                 {
-                    if (c.Current.GetType() == typeof(Pier)) //fill ship
+                    if (c.Current.GetType() == typeof(Pier)) //fill Ship
                     {
-                        ship.Fill += 1;
+                        Ship.Fill += 1;
                         Points += 1; //add 1 point
                     }
 
