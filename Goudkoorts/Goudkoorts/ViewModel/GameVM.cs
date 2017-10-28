@@ -44,6 +44,7 @@ namespace Goudkoorts
 
                     while (playing) //playing the game
                     {
+
                         for (int a = 1; a >=0; a--) //timer
                         {
                             Console.CursorLeft = 22;
@@ -67,7 +68,8 @@ namespace Goudkoorts
                             }
                         }
 
-                        //UserInput.getInput();
+                        Shipyard.Switch(UserInput.getInput());
+
                     }
                 }
             }

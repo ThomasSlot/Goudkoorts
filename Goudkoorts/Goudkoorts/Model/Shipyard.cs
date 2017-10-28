@@ -128,10 +128,33 @@ namespace Goudkoorts
                 Level[a][b].next.color = ConsoleColor.Green;
             }
         }
-        
-        public void Switch(int i)
-        {
-        }   
+
+        public void Switch(string a)
+        {           
+            for (int y = 0; y < Level.Count(); y++) //y-size
+            {
+                for (int x = 0; x < Level[y].Count() - 1; x++) //x-size
+                {
+                    if(a.Equals(Level[y][x].name))
+                    {
+                        if(Level[y][x].GetType() == typeof(MergeTrack)) //switch mergetrack
+                        {
+                            if(Level[y][x].previous != Level[y][x].down)
+                            {
+                                Level[y][x].previous = Level[y][x].down;
+                                Level[y][x].up.color = ConsoleColor.Red;
+                            } else
+                            {
+                                Level[y][x].previous = Level[y][x].up;
+                                Level[y][x].down.color = ConsoleColor.Red;
+                            }
+                            Level[y][x].previous.color = ConsoleColor.Green;
+                        } 
+                    }
+                }
+            }
+            Console.ReadLine();
+        }
         
         public int PlayRound()
         {
