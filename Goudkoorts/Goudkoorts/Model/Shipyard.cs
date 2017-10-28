@@ -68,6 +68,7 @@ namespace Goudkoorts
                             break;
                         case 'S':
                             Level[y].Insert(x, new SwitchTrack(Switch.ToString(), x, y));
+                            Level[y][x].SwitchNumber = Switch;
                             Switch++;
                             break;
                         case 'W':
@@ -78,6 +79,7 @@ namespace Goudkoorts
                             break;
                         case 'M':
                             Level[y].Insert(x, new MergeTrack(Switch.ToString(), x, y));
+                            Level[y][x].SwitchNumber = Switch;
                             Switch++;
                             break;
                     }
@@ -130,14 +132,17 @@ namespace Goudkoorts
         }
 
         public void Switch(string a)
-        {           
+        {
+            string j;
             for (int y = 0; y < Level.Count(); y++) //y-size
             {
                 for (int x = 0; x < Level[y].Count() - 1; x++) //x-size
                 {
-                    if(a.Equals(Level[y][x].name))
+                    j = Level[y][x].SwitchNumber.ToString();
+
+                    if (a.Equals(j))
                     {
-                        if(Level[y][x].GetType() == typeof(MergeTrack)) //switch mergetrack
+                        if (Level[y][x].GetType() == typeof(MergeTrack)) //switch mergetrack
                         {
                             if(Level[y][x].previous != Level[y][x].down)
                             {
@@ -149,11 +154,23 @@ namespace Goudkoorts
                                 Level[y][x].down.color = ConsoleColor.Red;
                             }
                             Level[y][x].previous.color = ConsoleColor.Green;
-                        } 
+                        } else if(Level[y][x].GetType() == typeof(SwitchTrack))//switch switchtrack
+                        {
+                            if (Level[y][x].next != Level[y][x].down)
+                            {
+                                Level[y][x].next = Level[y][x].down;
+                                Level[y][x].up.color = ConsoleColor.Red;
+                            }
+                            else
+                            {
+                                Level[y][x].next = Level[y][x].up;
+                                Level[y][x].down.color = ConsoleColor.Red;
+                            }
+                            Level[y][x].next.color = ConsoleColor.Green;
+                        }
                     }
                 }
             }
-            Console.ReadLine();
         }
         
         public int PlayRound()
@@ -275,7 +292,9 @@ namespace Goudkoorts
                         c.current = c.current.down;
                         c.current.setCart(true);
                     }
-                } else if (c.current.GetType().BaseType == typeof(RideTrack)) //if track
+                }
+
+                else if (c.current.GetType().BaseType == typeof(RideTrack)) //if track
                 {
                     if (c.current.left.GetType().BaseType == typeof(RideTrack) && c.current.left != c.previous) //if left = track
                     {
@@ -297,16 +316,11 @@ namespace Goudkoorts
                     }
                     else if (c.current.down.GetType().BaseType == typeof(RideTrack) && c.current.down != c.previous)//if down = track
                     {
-                        if (c.current.down.GetType() == typeof(MergeTrack) && c.current.down.previous == c.current)//if down = open mergetrack
+                        if (c.current.color != ConsoleColor.Red)//if down = open mergetrack
                         {
+                            Console.WriteLine("ik mag naar beneden");
                             Direction(c, "down");
-                        } else if(c.current.GetType() == typeof(SwitchTrack) && c.current.next == c.current.up)//if down = open switchtrack
-                        {
-                            Direction(c, "down");
-                        } else if(c.current.GetType() == typeof(RegularTrack))
-                        {
-                            Direction(c, "down");
-                        }
+                        } 
                     }
                 } 
                 if(c.current.GetType() == typeof(Pier)) //fill ship

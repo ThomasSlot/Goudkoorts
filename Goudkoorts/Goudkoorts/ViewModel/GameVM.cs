@@ -69,6 +69,7 @@ namespace Goudkoorts
                         }
 
                         Shipyard.Switch(UserInput.getInput());
+                        Console.ReadLine();
 
                     }
                 }
