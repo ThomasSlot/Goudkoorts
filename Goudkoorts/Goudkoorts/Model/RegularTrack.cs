@@ -7,7 +7,7 @@ namespace Goudkoorts
 {
     public class RegularTrack : RideTrack
     {
-        public RegularTrack(char name, int x, int y)
+        public RegularTrack(string name, int x, int y)
         {
             this.name = name;
             this.temp = name;

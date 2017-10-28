@@ -11,7 +11,7 @@ namespace Goudkoorts
         {
             this.y = y;
             this.x = x;
-            name = 'Z';
+            name = "Z";
         }
     }
 }

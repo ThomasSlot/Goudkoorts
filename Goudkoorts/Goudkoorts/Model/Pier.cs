@@ -7,7 +7,7 @@ namespace Goudkoorts
 {
     public class Pier : RideTrack
     {
-        public Pier(char name, int x, int y)
+        public Pier(string name, int x, int y)
         {
             this.name = name;
             this.temp = name;

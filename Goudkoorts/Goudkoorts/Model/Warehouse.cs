@@ -8,7 +8,7 @@ namespace Goudkoorts
     public class Warehouse : GameItem
     {
 
-        public Warehouse(char name, int x, int y)
+        public Warehouse(string name, int x, int y)
         {
             this.name = name;
             this.temp = name;

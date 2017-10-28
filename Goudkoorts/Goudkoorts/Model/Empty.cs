@@ -7,7 +7,7 @@ namespace Goudkoorts
 {
     public class Empty : GameItem
     {
-        public Empty(char name, int x, int y)
+        public Empty(string name, int x, int y)
         {
             this.name = name;
             this.x = x;

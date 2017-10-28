@@ -7,7 +7,7 @@ namespace Goudkoorts
 {
     public class ClassificationYard : RideTrack
     {
-        public ClassificationYard(char name, int x, int y)
+        public ClassificationYard(string name, int x, int y)
         {
             this.name = name;
             this.temp = name;

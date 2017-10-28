@@ -13,29 +13,36 @@ namespace Goudkoorts
         public GameItem down { get; set; }
         public GameItem current { get; set; }
         public GameItem previous { get; set; }
-            
-   
+        public GameItem next { get; set; }
+
         public int x { get; set; }
         public int y { get; set; }
 
-        public char name { get; set; }
+        public ConsoleColor color { get; set; }
 
-        public char temp { get; set; }
+        public int SwitchNumber { get; set; }
+
+        public string name { get; set; }
+
+        public string temp { get; set; }
 
         public bool hasCart { get; set; }
         
         public GameItem()
         {
+            hasCart = false;
         }
             
         public void setCart(bool b)
         {
             if (b)
             {
-                name = 'Z';
+                name = "Z";
+                hasCart = true;
             }else
             {
                 name = temp;
+                hasCart = false;
             }
         }
           

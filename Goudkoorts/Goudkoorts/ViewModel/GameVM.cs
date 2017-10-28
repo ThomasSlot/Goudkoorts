@@ -22,7 +22,6 @@ namespace Goudkoorts
             MenuView = new MenuView();
             
             UserInput = new UserInput();
-            Shipyard = new Shipyard(); //create actual game
 
             //start game
             PlayGame();
@@ -36,8 +35,9 @@ namespace Goudkoorts
             while (!stopped) //check if player decided to stop
             {
                 MenuView.ShowMenu();
-                if (UserInput.getInput().Equals("S"))
+                if (UserInput.getInput().Equals("S")) //player starts game
                 {
+                    Shipyard = new Shipyard(); //create actual game
                     playing = true;
                     Shipyard.setNumber(1);
                     Shipyard.create();
@@ -67,7 +67,7 @@ namespace Goudkoorts
                             }
                         }
 
-                        UserInput.getInput();
+                        //UserInput.getInput();
                     }
                 }
             }

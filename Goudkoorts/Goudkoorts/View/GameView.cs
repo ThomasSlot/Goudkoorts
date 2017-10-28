@@ -44,7 +44,16 @@ namespace Goudkoorts
             {
                 foreach (GameItem g in shipyard.Level[x])
                 {
-                    Console.Write(g.name);
+                    if (g.color == ConsoleColor.Green || g.color == ConsoleColor.Red)
+                    {
+                        Console.ForegroundColor = g.color;
+                        Console.Write(g.name);
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.Write(g.name);
+                    }
                 }
                 Console.WriteLine(" ");
             }

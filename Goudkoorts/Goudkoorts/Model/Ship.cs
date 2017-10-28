@@ -9,7 +9,7 @@ namespace Goudkoorts
     {
         public int fill { get; set; }
 
-        public Ship(char name, int x, int y)
+        public Ship(string name, int x, int y)
         {
             this.name = name;
             this.x = x;

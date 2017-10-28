@@ -41,6 +41,7 @@ namespace Goudkoorts
 
             //add items
             int x = 0;
+            int Switch = 1;
             for (int y = 0; y < lines.Length; y++) 
             {
                 Level.Insert(y, new List<GameItem>());
@@ -50,32 +51,34 @@ namespace Goudkoorts
                     switch (c)
                     {
                         case '-':
-                            Level[y].Insert(x, new Empty('-', x, y));
+                            Level[y].Insert(x, new Empty("-", x, y));
                             break;
                         case 'B':
-                            ship = new Ship('B', x, y);
+                            ship = new Ship("B", x, y);
                             Level[y].Insert(x, ship);
                             break;
                         case 'X':
-                            Level[y].Insert(x, new EndTrack('X', x, y));
+                            Level[y].Insert(x, new EndTrack("X", x, y));
                             break;
                         case 'R':
-                            Level[y].Insert(x, new RegularTrack('R', x, y));
+                            Level[y].Insert(x, new RegularTrack("R", x, y));
                             break;
                         case 'P':
-                            Level[y].Insert(x, new Pier('P', x, y));
+                            Level[y].Insert(x, new Pier("P", x, y));
                             break;
                         case 'S':
-                            Level[y].Insert(x, new SwitchTrack('S', x, y));
+                            Level[y].Insert(x, new SwitchTrack(Switch.ToString(), x, y));
+                            Switch++;
                             break;
                         case 'W':
-                            Level[y].Insert(x, new Warehouse('W', x, y));
+                            Level[y].Insert(x, new Warehouse("W", x, y));
                             break;
                         case 'C':
-                            Level[y].Insert(x, new ClassificationYard('C', x, y));
+                            Level[y].Insert(x, new ClassificationYard("C", x, y));
                             break;
                         case 'M':
-                            Level[y].Insert(x, new MergeTrack('M', x, y));
+                            Level[y].Insert(x, new MergeTrack(Switch.ToString(), x, y));
+                            Switch++;
                             break;
                     }
                     x++; //count charachter
@@ -88,12 +91,12 @@ namespace Goudkoorts
             {
                 for(int j = 0; j < Level[i].Count() - 1; j++) //x-size
                 {
-                    SetCoordinates(i, j);
+                    SetSides(i, j);
                 }
             }
         }
 
-        public void SetCoordinates(int a, int b) //set coordinates of each line plus sides
+        public void SetSides(int a, int b) //set joining sides
         {
             if (Level[a][b].x > 0) //left
             {
@@ -111,11 +114,28 @@ namespace Goudkoorts
             {
                 Level[a][b].up = Level[a-1][b];
             }
+
+            //set openside of merge/switchtrack
+            if (Level[a][b].GetType() == typeof(MergeTrack))
+            {
+                Level[a][b].previous = Level[a][b].up;
+                Level[a][b].down.color = ConsoleColor.Red;
+                Level[a][b].previous.color = ConsoleColor.Green;
+            } else if(Level[a][b].GetType() == typeof(SwitchTrack))
+            {
+                Level[a][b].next = Level[a][b].up;
+                Level[a][b].down.color = ConsoleColor.Red;
+                Level[a][b].next.color = ConsoleColor.Green;
+            }
+        }
+        
+        public void Switch(int i)
+        {
         }   
         
         public int PlayRound()
         {
-            //random random cart spawn
+            //random cart spawn
             Warehouse w;
             Cart cart;
             Random r = new Random();
@@ -136,6 +156,7 @@ namespace Goudkoorts
                 }
             }
            
+            //move the carts if there are any
             if (carts != null)
             {
                 moveCarts();
@@ -197,8 +218,7 @@ namespace Goudkoorts
                 {
                     if(carts[i].current == carts[i + 1].current)
                     {
-                        carts.RemoveAt(i);
-                        return true;
+                        return true; //game over
                     }
                 }
             }
@@ -234,33 +254,36 @@ namespace Goudkoorts
                     }
                 } else if (c.current.GetType().BaseType == typeof(RideTrack)) //if track
                 {
-                    if (c.current.left.GetType().BaseType == typeof(RideTrack) && c.current.left != c.previous) //if left track
+                    if (c.current.left.GetType().BaseType == typeof(RideTrack) && c.current.left != c.previous) //if left = track
                     {
-                        c.previous = c.current;
-                        c.previous.setCart(false);
-                        c.current = c.current.left;
-                        c.current.setCart(true);
+                        if (c.current.left.GetType() == typeof(ClassificationYard) && c.current.left.hasCart == false) //if left = classificationyard and not has cart
+                        {
+                            Direction(c, "left");
+                        } else if (c.current.left.GetType() != typeof(ClassificationYard))
+                        {
+                            Direction(c, "left");
+                        }
                     }
-                    else if (c.current.right.GetType().BaseType == typeof(RideTrack) && c.current.right != c.previous)//if right track
+                    else if (c.current.right.GetType().BaseType == typeof(RideTrack) && c.current.right != c.previous)//if right = track
                     {
-                        c.previous = c.current;
-                        c.previous.setCart(false);
-                        c.current = c.current.right;
-                        c.current.setCart(true);
+                        Direction(c, "right");
                     }
-                    else if (c.current.up.GetType().BaseType == typeof(RideTrack) && c.current.up != c.previous)//if up track
+                    else if (c.current.up.GetType().BaseType == typeof(RideTrack) && c.current.up != c.previous)//if up = track
                     {
-                        c.previous = c.current;
-                        c.previous.setCart(false);
-                        c.current = c.current.up;
-                        c.current.setCart(true);
+                        Direction(c, "up");
                     }
-                    else if (c.current.down.GetType().BaseType == typeof(RideTrack) && c.current.down != c.previous)//if down track
+                    else if (c.current.down.GetType().BaseType == typeof(RideTrack) && c.current.down != c.previous)//if down = track
                     {
-                        c.previous = c.current;
-                        c.previous.setCart(false);
-                        c.current = c.current.down;
-                        c.current.setCart(true);
+                        if (c.current.down.GetType() == typeof(MergeTrack) && c.current.down.previous == c.current)//if down = open mergetrack
+                        {
+                            Direction(c, "down");
+                        } else if(c.current.GetType() == typeof(SwitchTrack) && c.current.next == c.current.up)//if down = open switchtrack
+                        {
+                            Direction(c, "down");
+                        } else if(c.current.GetType() == typeof(RegularTrack))
+                        {
+                            Direction(c, "down");
+                        }
                     }
                 } 
                 if(c.current.GetType() == typeof(Pier)) //fill ship
@@ -272,6 +295,30 @@ namespace Goudkoorts
                     Console.ReadLine();
                 }            
             }
+        }
+
+        public void Direction(Cart c, string direction)
+        {
+            c.previous = c.current;
+            c.previous.setCart(false);
+
+            switch (direction)
+            {
+                case "left":
+                    c.current = c.current.left;
+                    break;
+                case "right":
+                    c.current = c.current.right;
+                    break;
+                case "up":
+                    c.current = c.current.up;
+                    break;
+                case "down":
+                    c.current = c.current.down;
+                    break;
+            }
+
+            c.current.setCart(true);
         }
     }
 }

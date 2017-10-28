@@ -7,7 +7,7 @@ namespace Goudkoorts
 {
     public class MergeTrack : RideTrack
     {
-        public MergeTrack(char name, int x, int y)
+        public MergeTrack(string name, int x, int y)
         {
             this.name = name;
             this.temp = name;
