@@ -51,7 +51,7 @@ namespace Goudkoorts
                         }
                         start = false;
 
-                        for (int a = 5; a >=0; a--) //timer
+                        for (int a = 3; a >=0; a--) //timer
                         {
                             Console.CursorLeft = 22;
                             GameView.ShowGame(Shipyard, a, Shipyard.carts.Count(), Shipyard.carts, Shipyard.Points, Shipyard.ship.fill);
