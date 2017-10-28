@@ -293,46 +293,64 @@ namespace Goudkoorts
                     }
                 }
 
-                if (c.current.left.GetType().BaseType == typeof(RideTrack) && c.current.left != c.previous)//if left = track
+                if (c.current.GetType().BaseType == typeof(RideTrack)) //2. sta ik op een type ridetrack
                 {
-                    if (c.current.left.GetType() == typeof(ClassificationYard) && c.current.left.hasCart == false) //if left = classificationyard and not has cart
+                    if (c.current.right.GetType().BaseType == typeof(RideTrack)) //2.1 is rechts van het type ridetrack
                     {
-                        Direction(c, "left");
+                        if (c.current.right != c.previous) //2.1.1 is dat niet mijn vorige
+                        {
+                            Direction(c, "right");//ga naar rechts
+                            continue;
+                        }
                     }
-                    else if (c.current.left.GetType() != typeof(ClassificationYard))
-                    {
-                        Direction(c, "left");
-                    }
-                }
 
-                if (c.current.down.GetType().BaseType == typeof(RideTrack) && c.current.down != c.previous)//if down = track
-                {
-                    if (c.current.down.color != ConsoleColor.Red)//if down = open switch
+                    if (c.current.left.GetType().BaseType == typeof(RideTrack))//2.2 is links van het type ridetrack
                     {
-                        Direction(c, "down");
+                        if (c.current.left != c.previous)//2.2.1 is dat niet mijn vorige
+                        {
+                            Direction(c, "left");//ga naar links
+                            continue;
+                        }
+                    }
+
+                    if (c.current.up.GetType().BaseType == typeof(RideTrack))//2.3 is boven van het type ridetrack
+                    {
+                        if (c.current.up != c.previous)//2.3.1 is dat niet mijn vorige
+                        {
+                            if (c.current.GetType() == typeof(SwitchTrack) && c.current.up == c.current.next)//2.3.1.1 sta ik op een switchtrack en is boven hetzelfde als mijn current.next
+                            {
+                                Direction(c, "up"); //ga naar boven
+                                continue;
+                            } else if (c.current.GetType() == typeof(RegularTrack)) //2.3.1.2 sta ik op een regulartrack
+                            {
+                                Direction(c, "up"); //ga naar boven
+                                continue;
+                            }
+                        }
+                    }
+
+                    if (c.current.down.GetType().BaseType == typeof(RideTrack)) //2.4 is onder van het type ridetrack
+                    {
+                        if (c.current.down != c.previous) //2.4.1 is dat niet mijn vorige
+                        {
+                            if (c.current.GetType() == typeof(SwitchTrack) && c.current.down == c.current.next)//2.4.1.1 sta ik op een switchtrack en is onder hetzelfde als mijn current.next
+                            {
+                                Direction(c, "down"); //ga naar onder
+                                continue;
+                            } else if (c.current.GetType() == typeof(RegularTrack))//2.4.1.2 sta ik op een regulartrack
+                            {
+                                Direction(c, "down"); //ga naar onder
+                                continue;
+                            }
+                        }
                     }
                 }
-
-                if (c.current.up.GetType().BaseType == typeof(RideTrack) && c.current.up != c.previous)//if up = track
+                if (c.current.GetType() == typeof(Pier)) //fill ship
                 {
-                    if (c.current.color != ConsoleColor.Red && c.current.up.color != ConsoleColor.Red)//if up = open switch
-                    {
-                            Direction(c, "up");
-                    }
-                }
-
-                if (c.current.right.GetType().BaseType == typeof(RideTrack) && c.current.right != c.previous)//if right = track
-                {
-                        Direction(c, "right");
-                }
-  
-                if(c.current.GetType() == typeof(Pier)) //fill ship
-                {
-                    Ship s = (Ship) c.current.up;
+                    Ship s = (Ship)c.current.up;
                     s.fill += 1;
                     Points += 1; //add 1 point
-                }   
-                         
+                }
             }
         }
 

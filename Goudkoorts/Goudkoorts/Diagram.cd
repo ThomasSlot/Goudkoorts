@@ -1,80 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Comment CommentText="Start Game">
-    <Position X="8.833" Y="0.781" Height="0.375" Width="0.856" />
+    <Position X="8.802" Y="2.344" Height="0.375" Width="0.856" />
   </Comment>
-  <Class Name="Goudkoorts.GameView">
-    <Position X="2.75" Y="0.75" Width="1.5" />
+  <Class Name="Goudkoorts.GameView" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAACAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAEAAAACAABAAAAAAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>View\GameView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.MenuView">
-    <Position X="4.75" Y="0.75" Width="1.5" />
+  <Class Name="Goudkoorts.MenuView" Collapsed="true">
+    <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>View\MenuView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.UserInput">
-    <Position X="7.25" Y="2.5" Width="1.5" />
+  <Class Name="Goudkoorts.UserInput" Collapsed="true">
+    <Position X="7" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModel\UserInput.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.Warehouse">
-    <Position X="5" Y="6.75" Width="1.5" />
+  <Class Name="Goudkoorts.Warehouse" Collapsed="true">
+    <Position X="2.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Warehouse.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.Ship">
-    <Position X="7.25" Y="4.75" Width="1.5" />
+  <Class Name="Goudkoorts.Ship" Collapsed="true">
+    <Position X="2.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>Model\Ship.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.Cart">
-    <Position X="2.5" Y="7.25" Width="1.5" />
+  <Class Name="Goudkoorts.Cart" Collapsed="true">
+    <Position X="4.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Cart.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.RideTrack">
-    <Position X="7.5" Y="6.5" Width="1.5" />
+  <Class Name="Goudkoorts.RideTrack" Collapsed="true">
+    <Position X="7.25" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\RideTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.Pier">
-    <Position X="10.75" Y="10.25" Width="1.5" />
+  <Class Name="Goudkoorts.Pier" Collapsed="true">
+    <Position X="9.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Pier.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.SwitchTrack">
-    <Position X="7.25" Y="8.75" Width="1.5" />
+  <Class Name="Goudkoorts.SwitchTrack" Collapsed="true">
+    <Position X="9.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\SwitchTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.ClassificationYard">
-    <Position X="10.75" Y="8.75" Width="1.5" />
+  <Class Name="Goudkoorts.ClassificationYard" Collapsed="true">
+    <Position X="9.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\ClassificationYard.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.GameVM">
-    <Position X="4.75" Y="2.5" Width="1.5" />
+  <Class Name="Goudkoorts.GameVM" Collapsed="true">
+    <Position X="5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAACAAAAAAAAABAAAAAAAAABAYAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModel\GameVM.cs</FileName>
@@ -86,50 +86,50 @@
       <Property Name="Shipyard" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Goudkoorts.Program">
-    <Position X="7.25" Y="0.75" Width="1.5" />
+  <Class Name="Goudkoorts.Program" Collapsed="true">
+    <Position X="9.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.EndTrack">
-    <Position X="9" Y="8.75" Width="1.5" />
+  <Class Name="Goudkoorts.EndTrack" Collapsed="true">
+    <Position X="7.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\EndTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.GameItem">
-    <Position X="5" Y="4.25" Width="1.5" />
+  <Class Name="Goudkoorts.GameItem" Collapsed="true">
+    <Position X="5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAgAAAAAAAAAAIAAAAAAAAEAAAAAAAAAAIAAAA=</HashCode>
+      <HashCode>AAAIAAAACAACAAAAAAIABAAAgAAMAACAAABgAgIAgAA=</HashCode>
       <FileName>Model\GameItem.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.Shipyard">
-    <Position X="2.25" Y="3.5" Width="1.5" />
+  <Class Name="Goudkoorts.Shipyard" Collapsed="true">
+    <Position X="2.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAIAAAAAAAAAgAAAAhBAABAAAAAAAA=</HashCode>
+      <HashCode>AAAAABAAQAAEgMFIACAAAAAAAgAAAABBgABAAAAAAAA=</HashCode>
       <FileName>Model\Shipyard.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.Empty">
-    <Position X="9.25" Y="4" Width="1.5" />
+  <Class Name="Goudkoorts.Empty" Collapsed="true">
+    <Position X="4.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Empty.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.RegularTrack">
-    <Position X="10.5" Y="6.5" Width="1.5" />
+  <Class Name="Goudkoorts.RegularTrack" Collapsed="true">
+    <Position X="7.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\RegularTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.MergeTrack">
-    <Position X="7.25" Y="10.5" Width="1.5" />
+  <Class Name="Goudkoorts.MergeTrack" Collapsed="true">
+    <Position X="7.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\MergeTrack.cs</FileName>
