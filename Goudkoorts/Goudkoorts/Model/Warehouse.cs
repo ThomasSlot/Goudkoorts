@@ -16,7 +16,7 @@ namespace Goudkoorts
             this.Y = Y;
         }
 
-        public bool CreateCart(Random R, int Dif)
+        public override bool CreateCart(Random R, int Dif)
         {
             int X = R.Next(100);
             if(X < Dif*20)

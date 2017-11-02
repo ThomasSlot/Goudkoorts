@@ -155,32 +155,13 @@ namespace Goudkoorts
         public int PlayRound()
         {
             //random Cart spawn
-            Warehouse w;
-            Cart Cart;
-            Random r = new Random();
-            for (int i = 0; i < Level.Count(); i++) //y-size
-            {
-                for (int j = 0; j < Level[i].Count() - 1; j++) //x-size
-                {
-                    if(Level[i][j].GetType() == typeof(Warehouse))
-                    {
-                        w = (Warehouse)Level[i][j];
-                        if(w.CreateCart(r, Difficulty))
-                        {
-                            Cart = new Cart(i, j);
-                            Cart.Current = Level[i][j];
-                            Carts.Add(Cart);
-                        }
-                    }
-                }
-            }
+            CartSpawn();
            
             //move the Carts if there are any
             if (Carts != null)
             {
                 MoveCarts();
             }
-
 
             //check for points
             if(CheckPoints())
@@ -198,6 +179,25 @@ namespace Goudkoorts
             DeleteCart();
 
             return 1; //entire round played
+        }
+
+        public void CartSpawn()
+        {
+            Cart Cart;
+            Random r = new Random(); //now every warehouse has another random
+
+            for (int y = 0; y < Level.Count(); y++) //y-size
+            {
+                for (int x = 0; x < Level[y].Count() - 1; x++) //x-size
+                {
+                    if (Level[y][x].CreateCart(r, Difficulty))
+                    {
+                        Cart = new Cart(y, x); //create new cart
+                        Cart.Current = Level[y][x];
+                        Carts.Add(Cart);
+                    }
+                }
+            }
         }
 
         public bool CheckPoints()

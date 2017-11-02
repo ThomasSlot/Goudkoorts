@@ -36,6 +36,12 @@ namespace Goudkoorts
         public virtual void Switch()
         { 
         }
+
+        public virtual bool CreateCart(Random R, int Dif)
+        {
+            return false;
+        }
+        
             
         public void SetCart(bool b)
         {
