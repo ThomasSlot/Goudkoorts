@@ -5,11 +5,16 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public class RideTrack : GameItem
+    public abstract class RideTrack : GameItem
     {
 
         public RideTrack()
         {
+        }
+
+        public override void Switch()
+        {
+
         }
     }
 }

@@ -14,5 +14,20 @@ namespace Goudkoorts
             this.X = X;
             this.Y = Y;
         }
+
+        public override void Switch()
+        {
+            if (Previous != Down)
+            {
+                Previous = Down;
+                Up.Color = ConsoleColor.Red;
+            }
+            else
+            {
+                Previous = Up;
+                Down.Color = ConsoleColor.Red;
+            }
+            Previous.Color = ConsoleColor.Green;
+        }
     }
 }

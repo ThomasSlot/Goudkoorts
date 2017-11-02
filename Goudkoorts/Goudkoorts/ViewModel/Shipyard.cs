@@ -137,45 +137,16 @@ namespace Goudkoorts
         public void Switch(string a)
         {
             string j;
+
             for (int y = 0; y < Level.Count(); y++) //y-size
             {
                 for (int x = 0; x < Level[y].Count() - 1; x++) //x-size
                 {
-                    if (!Level[y][x].HasCart)
-                    {
-                        j = Level[y][x].SwitchNumber.ToString();
+                    j = Level[y][x].SwitchNumber.ToString();
 
-                        if (a.Equals(j))
-                        {
-                            if (Level[y][x].GetType() == typeof(MergeTrack)) //switch mergetrack
-                            {
-                                if (Level[y][x].Previous != Level[y][x].Down)
-                                {
-                                    Level[y][x].Previous = Level[y][x].Down;
-                                    Level[y][x].Up.Color = ConsoleColor.Red;
-                                }
-                                else
-                                {
-                                    Level[y][x].Previous = Level[y][x].Up;
-                                    Level[y][x].Down.Color = ConsoleColor.Red;
-                                }
-                                Level[y][x].Previous.Color = ConsoleColor.Green;
-                            }
-                            else if (Level[y][x].GetType() == typeof(SwitchTrack))//switch switchtrack
-                            {
-                                if (Level[y][x].Next != Level[y][x].Down)
-                                {
-                                    Level[y][x].Next = Level[y][x].Down;
-                                    Level[y][x].Up.Color = ConsoleColor.Red;
-                                }
-                                else
-                                {
-                                    Level[y][x].Next = Level[y][x].Up;
-                                    Level[y][x].Down.Color = ConsoleColor.Red;
-                                }
-                                Level[y][x].Next.Color = ConsoleColor.Green;
-                            }
-                        }
+                    if (a.Equals(j))
+                    {
+                        Level[y][x].Switch(); //GameItem.Switch
                     }
                 }
             }

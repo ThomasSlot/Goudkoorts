@@ -14,5 +14,9 @@ namespace Goudkoorts
             this.X = X;
             this.Y = Y;
         }
+        public override void Switch()
+        {
+
+        }
     }
 }

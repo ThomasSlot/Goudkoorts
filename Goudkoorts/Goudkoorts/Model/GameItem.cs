@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public class GameItem
+    public abstract class GameItem
     {
         public GameItem Right { get; set; }
         public GameItem Left { get; set; }
@@ -31,6 +31,10 @@ namespace Goudkoorts
         public GameItem()
         {
             HasCart = false;
+        }
+
+        public virtual void Switch()
+        { 
         }
             
         public void SetCart(bool b)
