@@ -33,6 +33,26 @@ namespace Goudkoorts
             HasCart = false;
         }
 
+        public virtual bool EmptyCart(){ return false;}
+
+        public bool isType(string type)
+        {
+            string x = this.GetType().ToString();
+
+            string[] split = x.Split('.');
+
+            if (split[1] == type)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public virtual bool IsTrack()
+        {
+            return false;
+        }
+
         public virtual void Switch()
         { 
         }

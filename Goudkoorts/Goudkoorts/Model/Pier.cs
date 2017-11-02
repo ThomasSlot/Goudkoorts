@@ -17,7 +17,15 @@ namespace Goudkoorts
 
         public override void Switch()
         {
+        }
 
+        public override bool EmptyCart()
+        {
+            if (HasCart)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

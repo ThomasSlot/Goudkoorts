@@ -202,13 +202,25 @@ namespace Goudkoorts
 
         public bool CheckPoints()
         {
-            if(Ship.IsFull()) //if Ship is full;
+            for (int y = 0; y < Level.Count(); y++) //y-size
+            {
+                for (int x = 0; x < Level[y].Count() - 1; x++) //x-size
+                {
+                    if (Level[y][x].EmptyCart()) //if cart on pier
+                    {
+                        Ship.Fill += 1;
+                        Points += 1; //add 1 point
+                    }
+                }
+            }
+
+            if (Ship.IsFull()) //if Ship is full;
             {
                 Difficulty += 2; //set difficulty higher
                 Points += 10;
             }
 
-            if(Points >= 36)
+            if (Points >= 36)
             {
                 return true;
             }
@@ -248,85 +260,7 @@ namespace Goudkoorts
         {
             foreach (Cart c in Carts)
             {
-                if (c.Current.GetType() == typeof(Warehouse)) //if warehouse
-                {
-                    c.Previous = c.Current; //set previous
-                    if (c.Current.Left.GetType().BaseType == typeof(RideTrack)) //if left track
-                    {
-                        c.Current = c.Current.Left;
-                        c.Current.SetCart(true);
-                    }
-                    else if (c.Current.Right.GetType().BaseType == typeof(RideTrack))//if right track
-                    {
-                        c.Current = c.Current.Right;
-                        c.Current.SetCart(true);
-                    }
-                    else if (c.Current.Up.GetType().BaseType == typeof(RideTrack))//if up track
-                    {
-                        c.Current = c.Current.Up;
-                        c.Current.SetCart(true);
-                    }
-                    else if (c.Current.Down.GetType().BaseType == typeof(RideTrack))//if down track
-                    {
-                        c.Current = c.Current.Down;
-                        c.Current.SetCart(true);
-                    }
-                    continue;
-                }
-
-                if (c.Current.GetType().BaseType == typeof(RideTrack)) //current ridetrack
-                {
-                    if (c.Current.GetType() == typeof(Pier)) //fill Ship
-                    {
-                        Ship.Fill += 1;
-                        Points += 1; //add 1 point
-                    }
-
-                    if (c.Current.Right.GetType().BaseType == typeof(RideTrack) && c.Current.Right != c.Previous) //check right
-                    {
-                        Direction(c, "right");//go right
-                            continue;
-                    }
-
-                    if (c.Current.Left.GetType().BaseType == typeof(RideTrack) && c.Current.Left != c.Previous)//check left
-                    {
-                        if (c.Current.GetType() == typeof(ClassificationYard) && !c.Current.Left.HasCart) //classification yard
-                        {
-                            Direction(c, "left");//go left
-                            continue;
-                        } else if (c.Current.GetType() == typeof(RegularTrack) || c.Current.GetType() == typeof(Pier))
-                        {
-                            Direction(c, "left");//go left
-                            continue;
-                        } 
-                    }
-
-                    if (c.Current.Up.GetType().BaseType == typeof(RideTrack) && c.Current.Up != c.Previous)//check up
-                    {
-                            if (c.Current.GetType() == typeof(SwitchTrack) && c.Current.Up == c.Current.Next)//check switchtrack
-                            {
-                                Direction(c, "up"); //go up
-                                continue;
-                            } else if (c.Current.GetType() == typeof(RegularTrack)) //check regulartrack
-                            {
-                                Direction(c, "up"); //go up
-                                continue;
-                            }
-                    }
-
-                    if (c.Current.Down.GetType().BaseType == typeof(RideTrack) && c.Current.Down != c.Previous) //check down
-                    {
-                            if (c.Current.GetType() == typeof(SwitchTrack) && c.Current.Down == c.Current.Next)//check switchtrack
-                            {
-                                Direction(c, "down"); //go down
-                                continue;
-                            } else if (c.Current.GetType() == typeof(RegularTrack))//check regulartrack
-                            {
-                                Direction(c, "down"); //go down
-                                continue;
-                            }
-                    }
-                }
+                c.Move();
             }
         }
 

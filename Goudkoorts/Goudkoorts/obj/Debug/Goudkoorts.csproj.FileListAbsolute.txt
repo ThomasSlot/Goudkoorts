@@ -15,3 +15,4 @@ C:\Users\thoma\Documents\GitHub\Goudkoorts\Goudkoorts\Goudkoorts\bin\Debug\Goudk
 C:\Users\thoma\Documents\GitHub\Goudkoorts\Goudkoorts\Goudkoorts\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 C:\Users\thoma\Documents\GitHub\Goudkoorts\Goudkoorts\Goudkoorts\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 C:\Users\thoma\Documents\GitHub\Goudkoorts\Goudkoorts\Goudkoorts\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\Thomas\Documents\GitHub\Goudkoorts\Goudkoorts\Goudkoorts\obj\Debug\Goudkoorts.csprojResolveAssemblyReference.cache
