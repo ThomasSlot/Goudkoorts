@@ -13,5 +13,14 @@ namespace Goudkoorts
             this.X = X;
             Name = "Z";
         }
+
+        public bool OnEndTrack()
+        {
+            if(Current.GetType() == typeof(EndTrack))
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

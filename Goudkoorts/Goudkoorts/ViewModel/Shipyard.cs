@@ -221,7 +221,7 @@ namespace Goudkoorts
             {
                 for (int i = 0; i < Carts.Count() - 1; i++)
                 {
-                    if (Carts[i].Current.GetType() == typeof(EndTrack))
+                    if (Carts[i].OnEndTrack())
                     {
                         Carts.RemoveAt(i);
                     }
