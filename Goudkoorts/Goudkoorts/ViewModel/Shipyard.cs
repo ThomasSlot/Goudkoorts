@@ -202,11 +202,10 @@ namespace Goudkoorts
 
         public bool CheckPoints()
         {
-            if(Ship.Fill >= 4) //if Ship is full;
+            if(Ship.IsFull()) //if Ship is full;
             {
                 Difficulty += 2; //set difficulty higher
                 Points += 10;
-                Ship.Fill = 0;
             }
 
             if(Points >= 36)

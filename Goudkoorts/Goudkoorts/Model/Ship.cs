@@ -16,5 +16,15 @@ namespace Goudkoorts
             this.Y = Y;
             Fill = 0;
         }
+
+        public bool IsFull()
+        {
+            if(Fill >= 4)
+            {
+                Fill = 0;
+                return true;
+            }
+            return false;
+        }
     }
 }
