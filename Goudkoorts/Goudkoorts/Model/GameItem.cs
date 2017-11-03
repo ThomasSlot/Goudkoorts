@@ -67,8 +67,7 @@ namespace Goudkoorts
             return false;
         }
         
-            
-        public void SetCart(bool b)
+        public virtual void SetCart(bool b)
         {
             if (b)
             {

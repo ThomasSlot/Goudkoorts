@@ -7,21 +7,26 @@ namespace Goudkoorts
 {
     public class Ship : GameItem
     {
-        public int Fill { get; set; }
+        public int Amount { get; set; }
 
         public Ship(string Name, int X, int Y)
         {
             this.Name = Name;
             this.X = X;
             this.Y = Y;
-            Fill = 0;
+            Amount = 0;
+        }
+
+        public void Fill(int points)
+        {
+            Amount += points;
         }
 
         public bool IsFull()
         {
-            if(Fill >= 4)
+            if(Amount >= 4)
             {
-                Fill = 0;
+                Amount = 0;
                 return true;
             }
             return false;

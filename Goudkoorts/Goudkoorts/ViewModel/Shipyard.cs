@@ -248,7 +248,9 @@ namespace Goudkoorts
         {
             foreach (Cart c in Carts)
             {
-                Points += c.Move(); //c.Move returns amount of points added to Points
+                int p = c.Move();//c.Move returns amount of points added to Points
+                Points += p; 
+                Ship.Fill(p);
             }
         }
     }
