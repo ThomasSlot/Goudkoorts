@@ -25,6 +25,5 @@ namespace Goudkoorts
             }
             return false;
         }
-
     }
 }

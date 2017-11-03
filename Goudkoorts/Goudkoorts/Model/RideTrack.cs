@@ -12,11 +12,6 @@ namespace Goudkoorts
         {
         }
 
-        public override bool IsTrack()
-        {
-            return true;
-        }
-
         public override void Switch()
         {
 

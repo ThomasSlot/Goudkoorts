@@ -14,10 +14,6 @@ namespace Goudkoorts
             this.X = X;
             this.Y = Y;
         }
-        public override bool IsTrack()
-        {
-            return true;
-        }
 
         public override void Switch()
         {
