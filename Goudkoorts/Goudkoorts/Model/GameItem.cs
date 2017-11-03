@@ -33,6 +33,31 @@ namespace Goudkoorts
             HasCart = false;
         }
 
+        public virtual int AddPoints(int Points)
+        {
+            return Points;
+        }
+
+        public virtual bool IsType(string Type) //check is this type is the same as given type in parameter
+        {
+            string x = this.GetType().ToString();
+            string[] split = x.Split('.');
+
+            if (split[1].Equals(Type))
+            {
+                return true;
+            }
+            return false; 
+        }
+
+        public virtual bool isTrack()
+        {
+            if(this.GetType().BaseType == typeof(RideTrack)){
+                return true;
+            }
+            return false;
+        }
+
         public virtual void Switch()
         { 
         }
