@@ -327,7 +327,14 @@ namespace Goudkoorts
                             {
                                 Direction(c, "down"); //go down
                                 continue;
-                            } else if (c.Current.GetType() == typeof(RegularTrack))//check regulartrack
+                            }
+                            if(c.Current.Down.GetType() == typeof(MergeTrack) && c.Current.Down.Previous == c.Current)
+                        {
+                            Direction(c, "down"); //go down
+                            continue;
+                        }
+
+                        if (c.Current.GetType() == typeof(RegularTrack) && c.Current.Down.GetType() != typeof(MergeTrack))//check regulartrack
                             {
                                 Direction(c, "down"); //go down
                                 continue;
